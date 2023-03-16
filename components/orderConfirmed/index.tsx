@@ -1,4 +1,4 @@
-import { Box, Container, Link as MuiLink, Stack, Typography } from "@mui/material";
+import { Box, Container, Link as MuiLink, Stack, Typography, Grid } from "@mui/material";
 import axios from "axios";
 import { SingleOrderResponse } from "components/allTypes/dto/order.dto";
 import appConfig from "config";
@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import * as styles from "./style";
 import { appStyles } from "components/common/appColors";
 import { YellowButton } from "components/common/styled/buttons";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+// import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 export default function OrderConfirmed({ id }: { id: string }) {
   const { data } = useQuery(
@@ -36,7 +36,7 @@ export default function OrderConfirmed({ id }: { id: string }) {
               Your order # is: {id}
             </Typography>
             <Typography variant="body1" component="div" fontWeight={appStyles.w500}>
-              <Grid2
+              <Grid
                 container
                 spacing={{ xs: 1, sm: 3 }}
                 alignItems="center"
@@ -44,7 +44,7 @@ export default function OrderConfirmed({ id }: { id: string }) {
                 flexDirection={{ xs: "column", sm: "row" }}
                 sx={{ pb: { xs: 5, sm: 0 } }}
               >
-                <Grid2>
+                <Grid>
                   <Box component="ul" sx={styles.priceContainer}>
                     <li>
                       <strong>Product Total:</strong>&nbsp;{orderData.order_price}{" "}
@@ -65,19 +65,19 @@ export default function OrderConfirmed({ id }: { id: string }) {
                       <span>{appConfig.product.currency}</span>
                     </li>
                   </Box>
-                </Grid2>
-                <Grid2>
+                </Grid>
+                <Grid>
                   <Box>
-                    <Grid2 container spacing={2} flexDirection={"column"} alignItems="center">
-                      <Grid2>
+                    <Grid container spacing={2} flexDirection={"column"} alignItems="center">
+                      <Grid>
                         <img
                           loading="lazy"
                           height={200}
                           src="/images/invoice_demo.jpg"
                           alt="invoice demo"
                         />
-                      </Grid2>
-                      <Grid2>
+                      </Grid>
+                      <Grid>
                         <YellowButton
                           variant="contained"
                           onClick={() => {
@@ -88,11 +88,11 @@ export default function OrderConfirmed({ id }: { id: string }) {
                         >
                           Download Invoice
                         </YellowButton>
-                      </Grid2>
-                    </Grid2>
+                      </Grid>
+                    </Grid>
                   </Box>
-                </Grid2>
-              </Grid2>
+                </Grid>
+              </Grid>
               <Typography
                 variant="h6"
                 textAlign={{ xs: "center", sm: "start" }}
