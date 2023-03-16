@@ -119,7 +119,7 @@ export default function Navbar() {
               <Grid2 sx={{ display: { xs: "none", md: "block" } }}>
                 <Link href="/" className="logo-link">
                   <img
-                    src={`/images/${process.env.NEXT_PUBLIC_CONFIG}-logo.png`}
+                    src={`/images/qtdealz-logo.png`}
                     alt="logo"
                     className="header-logo"
                   />

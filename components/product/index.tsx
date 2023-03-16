@@ -205,7 +205,7 @@ export const Product = ({ id }: { id: string }) => {
       const subSkuImages = map(productData.sub_sku, "image_url");
       const productImages = map(productData.image_name, "name");
       const allImages = concat(subSkuImages, productImages);
-
+      setNotificationDrawerEl(false);
       const uniqueSubSkuImgs: string[] = [];
       allImages.forEach((value) => {
         if (!uniqueSubSkuImgs.includes(value)) {
@@ -214,7 +214,6 @@ export const Product = ({ id }: { id: string }) => {
       });
 
       setSliderImages(uniqueSubSkuImgs);
-      setNotificationDrawerEl(false);
       formik.setValues({ ...formikInitialValues, ...getCustomerInfo() }, false);
     }
   }, [productData]);
@@ -494,9 +493,9 @@ export const Product = ({ id }: { id: string }) => {
               <strong>Order Now - </strong> Fill the form below for quick checkout
             </Typography>
             <div style={{ padding: '0px 60px 0px 60px', display: 'flex', justifyContent: 'space-between', marginBottom: '20px'}}>
-              <div style={{ width: '80px', height: '30px', borderRadius: '5px', backgroundColor: 'green', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Sold{" "}
+              <div style={{ width: '120px', height: '35px', borderRadius: '5px', backgroundColor: 'green', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Sold{" "}
               {productData?.quantity_sold}</div>
-              <div style={{ width: '80px', height: '30px', borderRadius: '5px', backgroundColor: 'red', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Left{" "}{productData?.available_stock}</div>
+              <div style={{ width: '120px', height: '35px', borderRadius: '5px', backgroundColor: 'red', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Left{" "}{productData?.available_stock}</div>
             </div>
             <form className="order-form" onSubmit={formik.handleSubmit}>
               <Grid container spacing={1} sx={styles.formGrid} justifyContent="center">

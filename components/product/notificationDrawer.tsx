@@ -176,6 +176,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                           disableElevation
                           sx={{fontSize: { xs: 13 }, fontWeight: 500, lineHeight: '19.39px'}}
                           variant="contained"
+                          onClick={handleCloseNotificationDrawer}
                         >
                           Details
                         </BlackButton>
