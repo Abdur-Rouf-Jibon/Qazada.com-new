@@ -19,6 +19,11 @@ export const cartDrawerElAtom = atom<boolean>({
   default: false,
 });
 
+export const notificationDrawerElAtom = atom<boolean>({
+  key: "notificationDrawerEl",
+  default: false,
+});
+
 export const selectedSubSKUAtom = atom<SubSku | null>({
   key: "sub-sku",
   default: null,

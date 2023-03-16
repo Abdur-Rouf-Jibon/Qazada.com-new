@@ -71,6 +71,18 @@ export const cartDrawerStyle: muiSxPropType = {
   },
 };
 
+export const notificationDrawerStyle: muiSxPropType = {
+  "& .MuiTypography-root": {},
+  "& .MuiDrawer-paper": {
+    xs: {
+      height: "100% !important",
+    },
+  },
+  "& .MuiBox-root": {
+    margin: 0,
+  }
+};
+
 export const cardDrawerBoxContainer: muiSxPropType = {
   minWidth: {
     sm: "400px",
@@ -89,10 +101,36 @@ export const cardDrawerBoxContainer: muiSxPropType = {
   },
 };
 
+export const notificationDrawerBoxContainer: muiSxPropType = {
+  minWidth: {
+    sm: "300px",
+  },
+  maxWidth: {
+    sm: "430px",
+  },
+  mx: {
+    md: 4,
+    xs: 2,
+  },
+  position: "relative",
+  minHeight: "100%",
+  "& .cart-product-title": {
+    fontWeight: appStyles.w500,
+  },
+};
+
 export const prodListBoxContainer: muiSxPropType = {
   "& .MuiTypography-root": {
     color: "#444444",
-  },
+    //marginTop: 0
+  }
+};
+
+export const notificationListBoxContainer: muiSxPropType = {
+  "& .MuiTypography-root": {
+    color: "#444444",
+    marginTop: 0
+  }
 };
 export const prodBox: muiSxPropType = {
   maxHeight: {
@@ -106,6 +144,19 @@ export const prodBox: muiSxPropType = {
   },
   "& .cart-product-delivery-msg": {
     fontWeight: appStyles.w600,
+  },
+};
+
+export const notificationRelatedProductBox: muiSxPropType = {
+  maxHeight: {
+    xs: "calc(100vh - 250px)",
+    sm: "calc(100vh - 200px)",
+  },
+  padding: 2,
+  overflowY: "auto",
+  "& a": {
+    textDecoration: "none",
+    color: "inherit",
   },
 };
 

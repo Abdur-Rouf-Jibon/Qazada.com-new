@@ -29,7 +29,7 @@ import React, { useEffect, useState } from "react";
 import { useIsFetching, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import * as yup from "yup";
-import { cartDrawerElAtom, customerContactInfo, selectedSubSKUAtom } from "../../atoms/atoms";
+import { cartDrawerElAtom, customerContactInfo, selectedSubSKUAtom, notificationDrawerElAtom } from "../../atoms/atoms";
 import {
   LocationDatum,
   LocationDetails,
@@ -54,6 +54,7 @@ import { appColors, appStyles } from "components/common/appColors";
 import { ProductBreadcrumbs } from "./breadcrums";
 import { BlackButton, YellowButton } from "components/common/styled/buttons";
 import { RelatedProducts } from "./relatedProducts";
+import { NotificationDrawer } from "./notificationDrawer";
 import { ProductFeedback } from "./feedback";
 
 interface ProductFormValues {
@@ -81,6 +82,7 @@ export const Product = ({ id }: { id: string }) => {
   const queryClient = useQueryClient();
   const theme = useTheme();
   const setCartDrawerEl = useSetRecoilState(cartDrawerElAtom);
+  const [notificationDrawerEl, setNotificationDrawerEl] = useRecoilState(notificationDrawerElAtom);
   const [selectedSubSku, setSelectedSubSku] = useRecoilState(selectedSubSKUAtom);
   const [customerContInfo, setCustomerContInfo] = useRecoilState(customerContactInfo);
   const [openOrderModal, setOpenOrderModal] = useState(false);
@@ -91,6 +93,19 @@ export const Product = ({ id }: { id: string }) => {
   const cartProducts = queryClient.getQueryData<AllCartProds>(["cartProducts"]);
   const isCartFetching = useIsFetching(["cartProducts"]) > 0;
   const mdMatches = useMediaQuery(theme.breakpoints.up("md"));
+
+  const toggleNotificaitonDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+  
+    setNotificationDrawerEl(open);
+  };
 
   const formikInitialValues = {
     colorValue: "",
@@ -199,6 +214,7 @@ export const Product = ({ id }: { id: string }) => {
       });
 
       setSliderImages(uniqueSubSkuImgs);
+      setNotificationDrawerEl(false);
       formik.setValues({ ...formikInitialValues, ...getCustomerInfo() }, false);
     }
   }, [productData]);
@@ -334,7 +350,7 @@ export const Product = ({ id }: { id: string }) => {
         {
           onSettled: async () => {
             await queryClient.refetchQueries(["cartProducts"]);
-            setCartDrawerEl(true);
+            setNotificationDrawerEl(true);
           },
         }
       );
@@ -403,17 +419,13 @@ export const Product = ({ id }: { id: string }) => {
         <Grid container mb={3} mt={{ xs: 1, md: 7 }} justifyContent="space-evenly">
           <Grid item md={5} xs={12} sm={10}>
             <Typography
-              variant="h5"
-              fontWeight={appStyles.w600}
-              fontSize={{ xs: "1.3rem", sm: "h5.fontSize" }}
-              gutterBottom
-              color={appColors.blueDarkGrey}
-              textAlign="center"
-            >
-              {productData?.product_name}
-            </Typography>
-            <Typography variant="h6" fontWeight={400} textAlign={"center"} sx={{ mb: 2 }}>
-              Sku-{productData?.product_sku}
+                fontWeight={appStyles.w600}
+                fontSize={{ xs: "1.3rem", sm: "h5.fontSize" }}
+                color={appColors.blueDarkGrey}
+                gutterBottom
+                textAlign="center"
+              >
+                {productData?.product_name} - <span style={{fontSize:16, fontWeight: 400, marginBottom: 4}}>SKU-{productData?.product_sku}</span>
             </Typography>
             {sliderImages && (
               <Slider images={sliderImages} youtubeLink={productData?.youtube_link} />
@@ -481,6 +493,11 @@ export const Product = ({ id }: { id: string }) => {
             <Typography my={2} textAlign="center">
               <strong>Order Now - </strong> Fill the form below for quick checkout
             </Typography>
+            <div style={{ padding: '0px 60px 0px 60px', display: 'flex', justifyContent: 'space-between', marginBottom: '20px'}}>
+              <div style={{ width: '80px', height: '30px', borderRadius: '5px', backgroundColor: 'green', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Sold{" "}
+              {productData?.quantity_sold}</div>
+              <div style={{ width: '80px', height: '30px', borderRadius: '5px', backgroundColor: 'red', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Left{" "}{productData?.available_stock}</div>
+            </div>
             <form className="order-form" onSubmit={formik.handleSubmit}>
               <Grid container spacing={1} sx={styles.formGrid} justifyContent="center">
                 {productData && productData.color.length > 0 && (
@@ -814,6 +831,14 @@ export const Product = ({ id }: { id: string }) => {
             />
           )}
         </Box>
+        {productCategory && (
+            <NotificationDrawer 
+              open={notificationDrawerEl}
+              categoryId={productCategory.value}
+              categoryName={productCategory.text} 
+              toggleDrawer={toggleNotificaitonDrawer} 
+            />
+        )}
         <ProductOutOfStockModal open={outOfStockModalOpen} onClose={handleOutOfStockModalClose} />
         <NegativeInventoryModal
           open={negativeInventoryModalOpen}

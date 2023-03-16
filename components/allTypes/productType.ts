@@ -16,6 +16,8 @@ export interface ProductsData {
   selector_id: string;
   selector_name: string;
   product_rating: number;
+  available_stock: number;
+  quantity_sold: number;
   buying_price: number;
   wholesale_margin: number;
   retail_margin: number;
@@ -26,6 +28,8 @@ export interface ProductsData {
   uploader_id: string;
   uploader_name: string;
   wholesale_buying_price: number;
+  total_reviews: number;
+  average_rating: number;
   wholesale_selling_price: number;
   modified_date: Date;
   modified_by: null;
