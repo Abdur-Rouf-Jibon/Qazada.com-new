@@ -150,7 +150,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                     </Grid>
                     <Grid item>
                       <Typography variant="body2" component="div">
-                        <Link href={`/product/${product._id}`} className="cart-product-title">
+                        <Link href={`/product/${product._id}`} className="cart-product-title" onClick={handleCloseNotificationDrawer}>
                           {product.product_name}
                         </Link>
                         <br />
