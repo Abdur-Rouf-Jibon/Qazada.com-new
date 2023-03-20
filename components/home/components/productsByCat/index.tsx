@@ -1,4 +1,13 @@
-import { Box, Button, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { grey } from "@mui/material/colors";
 import ProdsListSkeleton from "components/common/skeletons/prodsListSekeleton";
 import { YellowButton } from "components/common/styled/buttons";
@@ -179,10 +188,8 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                           {locationData.discounted_price > 0 && (
                             <>
                               <Box component="span" sx={styles.prodDiscountPrice}>
-                                <s>
-                                  {appConfig.product.currency}&nbsp;
-                                  {locationData.selling_price}
-                                </s>
+                                {appConfig.product.currency}&nbsp;
+                                {locationData.selling_price}
                               </Box>
                             </>
                           )}
@@ -192,9 +199,14 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                             </Box>
                           )}
                         </Typography>
-                        <Typography variant="body2" sx={styles.prodTitle} noWrap={true}>
-                          {item.product_name}
-                        </Typography>
+                        <Stack direction={"row"} justifyContent="space-between" alignItems="center">
+                          <Typography variant="body2" sx={styles.prodTitle} noWrap={false}>
+                            {item.product_name}
+                          </Typography>
+                          <Box component="span" style={{backgroundColor: "#ffeb3b",color:'#222222'}} sx={styles.saleText}>
+                            View
+                          </Box>
+                        </Stack>
                       </Box>
                     </Paper>
                   </Link>
