@@ -72,7 +72,7 @@ export const prodTitle: muiSxPropType = {
     sm: "13px",
   },
   color: grey[700],
-  mr: 3,
+  mr: 1,
 };
 
 export const prodPriceText: muiSxPropType = {
@@ -94,6 +94,7 @@ export const prodPriceNumber: muiSxPropType = {
   // },
 };
 export const prodDiscountPrice: muiSxPropType = {
+  position:'relative',
   color: grey[500],
   ml: 1,
   fontSize: {
@@ -102,7 +103,15 @@ export const prodDiscountPrice: muiSxPropType = {
   "@media (max-width: 405px)": {
     fontSize: "11px",
   },
+
+  ':after':{
+    content:"'❌'",
+    position: "absolute",
+    left: "30%",
+    top: 0,
+  }
 };
+
 
 export const saleText: muiSxPropType = {
   fontWeight: "bold",

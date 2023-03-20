@@ -7,7 +7,7 @@
 }
 
 /* Blur Images on local dev environment */
-.filter-all-media img,
+/* .filter-all-media img,
 .filter-all-media video,
 .filter-all-media iframe,
 .filter-all-media div[style*="url"],
@@ -15,7 +15,7 @@
 .filter-all-media a[style*="url"],
 .filter-all-media i[style*="url"] {
   filter: blur(50px) !important;
-}
+} */
 
 /* Navbar styles */
 .search-box {

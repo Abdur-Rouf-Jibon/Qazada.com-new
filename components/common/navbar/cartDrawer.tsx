@@ -258,6 +258,16 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
               <Grid item xs={6}>
                 {customerContInfo && (
                   <Box>
+                    <Typography
+                      sx={{
+                        color: "green",
+                      }}
+                      variant="body1"
+                      my={1}
+                      fontWeight={appStyles.w600}
+                    >
+                      Delivery address
+                    </Typography>
                     <Stack direction={"row"} justifyContent="space-between">
                       <Box>
                         <Typography variant="body2" fontWeight={appStyles.w600} gutterBottom>
