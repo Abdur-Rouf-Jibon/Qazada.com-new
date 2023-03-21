@@ -410,7 +410,7 @@ export const Product = ({ id }: { id: string }) => {
   return (
     <>
       <Container sx={{ mb: 10 }}>
-        {mdMatches && productCategory && (
+        {/* {mdMatches && productCategory && (
           <ProductBreadcrumbs
             secondBreadcrumbRoute={`/category/${productCategory.value}/${productCategory.text}`}
             secondBreadcrumbContent={productCategory.text}
@@ -418,8 +418,8 @@ export const Product = ({ id }: { id: string }) => {
               productData!.product_sku
             }`}
           />
-        )}
-        <Grid container mb={3} mt={{ xs: 1, md: 7 }} justifyContent="space-evenly">
+        )} */}
+        <Grid container mb={3} justifyContent="space-evenly">
           <Grid item md={5} xs={12} sm={10}>
             <Typography
                 fontWeight={appStyles.w600}

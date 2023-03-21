@@ -144,7 +144,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
               py={1}
               // bgcolor={yellow[600]}
             >
-              <span style={{ fontWeight: 700, fontSize: '18px', lineHeight: "138.52%" }}>Product successfully added</span>
+              <span style={{ fontWeight: 600, fontSize: '18px', lineHeight: "138.52%" }}>Product successfully added</span>
               <br />
               <span style={{ color: "red", fontStyle: "italic", fontWeight: 600 }}>Add more Save more</span> - 10 QAR delivery charge. {" "}
               <span style={{ color: "red" }}>FREE</span> Delivery above <span style={{ fontWeight: 700 }}>150 QAR</span>.
@@ -225,7 +225,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                           variant="contained"
                           onClick={handleCloseNotificationDrawer}
                         >
-                          Details
+                          View
                         </BlackButton>
                       </Link>
                       </Stack>

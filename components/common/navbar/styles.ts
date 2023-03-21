@@ -240,8 +240,8 @@ export const topBanner: muiSxPropType = {
   "& .top-banner-text": {
     cursor: "pointer",
     fontSize: {
-      xs: 10,
-      sm: "body1.fontSize",
+      xs: 12,
+      sm: 14,
     },
   },
 };
