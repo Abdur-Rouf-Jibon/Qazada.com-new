@@ -234,10 +234,10 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                   </Grid>
                 ))}
             </Grid>
+            <Box ref={targetElRef} sx={{ py: 5 }} />
           </Box>
         </Box>
       </Box>
-      <Box ref={targetElRef} sx={{ py: 5 }} />
     </SwipeableDrawer>
   );
 }
