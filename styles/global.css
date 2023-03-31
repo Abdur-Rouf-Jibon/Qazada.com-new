@@ -159,6 +159,7 @@ footer .Mui-disabled {
   max-width: 1170px;
   padding: 15px;
   margin: 30px auto;
+  margin-top: 0;
 }
 @media screen and (max-width: 500px) {
   .home-content {
@@ -276,4 +277,19 @@ footer .Mui-disabled {
 .order-form fieldset:focus {
   outline: none !important;
   border: none !important;
+}
+
+@keyframes png-animatide {
+  0%    { opacity: 0; }
+  20%   { opacity: 1; }
+  80%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+
+@media screen and (max-width: 899px) {
+  .mui-style-1ugrs3c-MuiPaper-root-MuiAppBar-root,
+  .mui-style-1bc64jo{
+    position:  relative ;
+  }
 }

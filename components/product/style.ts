@@ -46,6 +46,10 @@ export const formGrid: muiSxPropType = {
   },
   "& .MuiSelect-outlined": {
     display: "flex",
+    padding:1.5
+  },
+  "& .MuiInputBase-input": {
+    padding:1.4
   },
 };
 
@@ -188,7 +192,7 @@ export const overralReviewsContainer: muiSxPropType = {
 };
 
 export const customerFeedbackContainer: muiSxPropType = {
-  py: 3,
+  py: 1,
 };
 
 export const productCommentsWrapper: muiSxPropType = {

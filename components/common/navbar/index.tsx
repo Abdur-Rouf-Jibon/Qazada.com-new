@@ -68,9 +68,35 @@ export default function Navbar() {
     window.open(appConfig.siteInfo.certificateURL, "_blank");
   };
 
+  const [fixedSearchbar, setFixedSearchbar] = React.useState(false);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset || document.documentElement.scrollTop;
+    console.log(position);
+    if(position > 210){
+      setFixedSearchbar(true)
+    }else{
+      setFixedSearchbar(false)
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Box sx={styles.navbarStyles} className={displayTopBanner ? "navbar-with-topbanner" : "navbar"}>
-      <AppBar position="fixed" color="inherit" elevation={0} sx={styles.appbarStyles}>
+   
+        <AppBar
+        position="fixed"
+        color="inherit"
+        elevation={0}
+        sx={styles.appbarStyles}
+      >
         {displayTopBanner && (
           <Box sx={styles.topBanner}>
             <Container maxWidth="lg" disableGutters>
@@ -118,15 +144,29 @@ export default function Navbar() {
               </Grid2>
               <Grid2 sx={{ display: { xs: "none", md: "block" } }}>
                 <Link href="/" className="logo-link">
+                  <img src={`/images/qtdealz-logo.png`} alt="logo" className="header-logo" />
+                </Link>
+              </Grid2>
+              <Grid2 sx={{ display: { xs: "none", md: "block" }, flex: 1 }}>
+                <SearchBar />
+              </Grid2>
+              <Grid2
+                sx={{
+                  display: { xs: "flex", md: "none" },
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {/* <SearchBar /> */}
+                <Link href="/" className="logo-link">
                   <img
                     src={`/images/qtdealz-logo.png`}
                     alt="logo"
                     className="header-logo"
+                    style={{ maxHeight: "50px", margin: "8px 10px 0 10px" }}
                   />
                 </Link>
-              </Grid2>
-              <Grid2 xs>
-                <SearchBar />
               </Grid2>
               <Grid2>
                 <Tooltip title="Cart">
@@ -159,7 +199,7 @@ export default function Navbar() {
           </Container>
         </Box>
         <Box sx={styles.catNavStyles}>
-          <Container maxWidth="md" sx={{ bgcolor: "white" }}>
+          <Container maxWidth="lg" sx={{ bgcolor: "white" }}>
             <Grid2
               container
               wrap="nowrap"
@@ -184,6 +224,7 @@ export default function Navbar() {
                     className={`nav-cat-container ${
                       catId === category._id ? "nav-item-active" : ""
                     }`}
+                    style={{ position: "relative" }}
                   >
                     <Link
                       href={`/category/${category._id}/${category.category_name}`}
@@ -191,12 +232,48 @@ export default function Navbar() {
                     >
                       {category.category_name.toUpperCase()}
                     </Link>
+                    {category.category_name.toUpperCase() == "CLEARANCE SALE" ? (
+                      <img
+                        style={{
+                          position: "absolute",
+                          top: "-4px",
+                          right: "10px",
+                          width: "32px",
+                          animation: "png-animatide 2s infinite",
+                        }}
+                        src="/images/sale.png"
+                      />
+                    ) : null}
+                    {category.category_name.toUpperCase() == "NEW ARRIVAL" ? (
+                      <img
+                        style={{
+                          position: "absolute",
+                          top: "-4px",
+                          right: "10px",
+                          width: "32px",
+                          animation: "png-animatide 2s infinite",
+                        }}
+                        src="/images/new.png"
+                      />
+                    ) : null}
                   </Grid2>
                 ))}
             </Grid2>
           </Container>
         </Box>
+        <Box sx={{ display: { xs: "flex", md: "none" } }} mx={2} pb={1}>
+          <SearchBar />
+        </Box>
       </AppBar>
+    
+      {fixedSearchbar && (
+  <AppBar position="fixed" color="inherit" elevation={0} sx={styles.appbarStyles} style={{position:'fixed'}}>
+  <Box sx={{ display: { xs: "flex", md: "none" } }} mx={2} py={1.5}>
+    <SearchBar />
+  </Box>
+</AppBar>
+      ) }
+    
       <CartDrawer open={cartDrawerEl} toggleDrawer={toggleCartDrawer} />
       <NavLeftSideMenuDrawer open={anchorLeftMenuEl} toggleDrawer={toggleLeftMenuDrawer} />
     </Box>

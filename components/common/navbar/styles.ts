@@ -33,6 +33,7 @@ export const appbarStyles: muiSxPropType = {
   },
   "& .nav-cat-container": {
     px: 0,
+    py:1
   },
   "& .nav-cat-container a": {
     textDecoration: "none",
@@ -43,9 +44,9 @@ export const appbarStyles: muiSxPropType = {
 };
 
 export const actionNavStyles: muiSxPropType = {
-  py: {
-    xs: 2,
-    md: 1,
+  msScrollSnapPointsY: {
+    xs: 1,
+    md: 0,
   },
   background: {
     xs: appColors.white,
@@ -203,6 +204,7 @@ export const confirmOrderBtn: muiSxPropType = {
   fontWeight: 500,
   fontSize: 16,
   textTransform: "capitalize",
+  boxShadow: "rgba(0, 0, 0, 0.65) 0px 0px 15px"
 };
 
 export const mobileNavListItemStyles: muiSxPropType = {
