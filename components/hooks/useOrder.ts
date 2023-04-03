@@ -65,6 +65,7 @@ export const postNewOrder = async ({
       customer_details: {
         customer_name: customerInfo.name,
         contact_number: customerInfo.phone,
+        contact_email: customerInfo.email,
         customer_address: customerInfo.address,
         customer_city: customerInfo.city,
       },

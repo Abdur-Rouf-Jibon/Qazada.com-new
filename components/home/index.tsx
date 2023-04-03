@@ -55,7 +55,7 @@ export default function Home() {
               <image
                 width="2200"
                 height="549"
-                xlinkHref={`/images/qtdealz-home-banner.jpg`}
+                xlinkHref={`/images/houseofbra-home-banner.gif`}
               ></image>
               <a
                 href={appConfig.siteInfo.certificateURL}

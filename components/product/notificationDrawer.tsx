@@ -166,8 +166,8 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
               <span style={{ color: "red", fontStyle: "italic", fontWeight: 600 }}>
                 Add more Save more
               </span>{" "}
-              - 10 QAR delivery charge. <span style={{ color: "red" }}>FREE</span> Delivery above{" "}
-              <span style={{ fontWeight: 700 }}>150 QAR</span>.
+              - 10 AED delivery charge. <span style={{ color: "red" }}>FREE</span> Delivery above{" "}
+              <span style={{ fontWeight: 700 }}>150 AED</span>.
             </Typography>
             <Grid container justifyContent="space-evenly">
               <Grid item>
@@ -245,8 +245,8 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                           bgcolor={grey[900]}
                           component="div"
                         >
-                          <span style={{color:'#fff'}}>
-                            <span style={{ fontSize: "10px", marginBottom: 5 }}>
+                          <span style={{color:'#fff',display:'flex',alignItems:'center'}}>
+                            <span style={{ fontSize: "10px" }}>
                               {appConfig.product.currency}
                             </span>
                             &nbsp;{" "}

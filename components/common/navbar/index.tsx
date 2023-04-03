@@ -144,7 +144,7 @@ export default function Navbar() {
               </Grid2>
               <Grid2 sx={{ display: { xs: "none", md: "block" } }}>
                 <Link href="/" className="logo-link">
-                  <img src={`/images/qtdealz-logo.png`} alt="logo" className="header-logo" />
+                  <img src={`/images/houseofbra-logo.png`} alt="logo" className="header-logo" />
                 </Link>
               </Grid2>
               <Grid2 sx={{ display: { xs: "none", md: "block" }, flex: 1 }}>
@@ -161,7 +161,7 @@ export default function Navbar() {
                 {/* <SearchBar /> */}
                 <Link href="/" className="logo-link">
                   <img
-                    src={`/images/qtdealz-logo.png`}
+                    src={`/images/houseofbra-logo.png`}
                     alt="logo"
                     className="header-logo"
                     style={{ maxHeight: "50px", margin: "8px 10px 0 10px" }}
@@ -267,7 +267,7 @@ export default function Navbar() {
       </AppBar>
     
       {fixedSearchbar && (
-  <AppBar position="fixed" color="inherit" elevation={0} sx={styles.appbarStyles} style={{position:'fixed'}}>
+  <AppBar position="fixed" color="inherit" elevation={0} sx={styles.appbarStyles} style={{position:'fixed',boxShadow: '0 0 10px #3333336b'}}>
   <Box sx={{ display: { xs: "flex", md: "none" } }} mx={2} py={1.5}>
     <SearchBar />
   </Box>

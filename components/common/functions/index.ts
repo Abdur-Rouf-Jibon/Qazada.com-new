@@ -7,11 +7,13 @@ export const handleCategoryRoute = (history: any, id: string, title: string) => 
 export const saveCustomerInfoToStorage = (
   name: string,
   phone: string,
+  email: string,
   city: string,
   address: string
 ) => {
   localStorage.setItem("customer_address", address);
   localStorage.setItem("customer_phone", phone);
+  localStorage.setItem("customer_email", email);
   localStorage.setItem("customer_name", name);
   localStorage.setItem("customer_city", city);
 };
@@ -19,21 +21,24 @@ export const saveCustomerInfoToStorage = (
 export const getCustomerInfo = (): {
   name: string;
   phone: string;
+  email: string;
   city: string;
   address: string;
 } => {
   const emptyValues = {
     name: "",
     phone: "",
+    email: "",
     city: "",
     address: "",
   };
   if (typeof window !== "undefined") {
     const address = localStorage.getItem("customer_address") || "";
     const phone = localStorage.getItem("customer_phone") || "";
+    const email = localStorage.getItem("customer_email") || "";
     const name = localStorage.getItem("customer_name") || "";
     const city = localStorage.getItem("customer_city") || "";
-    return appConfig.customer.rememberContactInfo ? { name, address, phone, city } : emptyValues;
+    return appConfig.customer.rememberContactInfo ? { name, address, phone, email, city } : emptyValues;
   } else {
     return emptyValues;
   }
@@ -42,6 +47,7 @@ export const getCustomerInfo = (): {
 export const removeCustomerDetailsFromStorage = () => {
   localStorage.removeItem("customer_address");
   localStorage.removeItem("customer_phone");
+  localStorage.removeItem("customer_email");
   localStorage.removeItem("customer_name");
   localStorage.removeItem("customer_city");
 };

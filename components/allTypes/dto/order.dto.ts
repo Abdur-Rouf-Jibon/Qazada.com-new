@@ -38,6 +38,7 @@ export interface OrderResponseData {
 export interface OrderCustomerDetails {
   customer_name: string;
   contact_number: number;
+  contact_email: string;
   customer_address: string;
   customer_city: string;
   customer_city_id: string;

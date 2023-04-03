@@ -18,6 +18,7 @@ export interface CustomerDetails {
   customer_address: string;
   customer_city: string;
   contact_number: string;
+  contact_email: string;
 }
 
 export interface OrderDatum {
@@ -79,6 +80,7 @@ export interface NewOrderResponse {
 export interface CustomerDetails {
   customer_name: string;
   contact_number: string;
+  contact_email: string;
   customer_address: string;
   customer_city: string;
   customer_city_id?: string;

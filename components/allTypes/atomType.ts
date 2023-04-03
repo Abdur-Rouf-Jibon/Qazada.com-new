@@ -3,6 +3,7 @@ import { ProdAttrDataType, ProductInventoryType, ProductsData, SubSku } from './
 export interface CustomerContactInfo {
   name: string;
   phone: string;
+  email: string;
   address: string;
   city: string;
 }

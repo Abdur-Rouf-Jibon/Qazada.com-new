@@ -67,6 +67,7 @@ interface ProductFormValues {
   designValue: string;
   qty: number | any;
   name: string;
+  email: string;
   phone: string;
   city: string;
   address: string;
@@ -118,6 +119,7 @@ export const Product = ({ id }: { id: string }) => {
     qty: "",
     name: "",
     phone: "",
+    email: "",
     city: "",
     address: "",
   };
@@ -236,6 +238,7 @@ export const Product = ({ id }: { id: string }) => {
     city: yup.string().min(2).required("City is required"),
     name: yup.string().min(2, "Enter a valid Name").required("Name is required"),
     phone: yup.string().length(8, "Enter a valid Number").required("Number is required"),
+    email: yup.string().email("Enter a valid Email").required("Email is required"),
     address: yup.string().min(1).required("Address is required"),
   });
 
@@ -308,6 +311,7 @@ export const Product = ({ id }: { id: string }) => {
     designValue,
     address,
     phone,
+    email,
     name,
     city,
   }: ProductFormValues) => {
@@ -323,10 +327,10 @@ export const Product = ({ id }: { id: string }) => {
     if (designValue) {
       design = getProdAttrDataByValue(productData!.design, designValue);
     }
-    if (address && phone && name && city) {
+    if (address && phone && email && name && city) {
       // setUserContactInfo({ address, phone, name, city });
-      saveCustomerInfoToStorage(name, phone, city, address);
-      setCustomerContInfo({ name, phone, city, address });
+      saveCustomerInfoToStorage(name, phone, email, city, address);
+      setCustomerContInfo({ name, phone, email, city, address });
     }
     return { color, size, design };
   };
@@ -699,6 +703,19 @@ export const Product = ({ id }: { id: string }) => {
                         onChange={formik.handleChange}
                         error={formik.touched.name && Boolean(formik.errors.name)}
                         helperText={formik.touched.name && formik.errors.name}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={8} md={12}>
+                      <TextField
+                        name="email"
+                        type="text"
+                        variant="outlined"
+                        placeholder="Enter Email"
+                        fullWidth
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        error={formik.touched.email && Boolean(formik.errors.email)}
+                        helperText={formik.touched.email && formik.errors.email}
                       />
                     </Grid>
                     <Grid item xs={12} sm={8} md={12}>

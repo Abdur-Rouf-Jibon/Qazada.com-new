@@ -38,10 +38,11 @@ export const EditCustomerInfo = ({
     initialValues: formikInitialValues,
     validationSchema: schema,
     onSubmit: async (values, { setSubmitting, submitForm }) => {
-      const { name, phone, address } = values;
+      const { name, phone,  address } = values;
+      const email = '';
       if (customerContInfo) {
-        saveCustomerInfoToStorage(name, phone, customerContInfo.city, address);
-        setCustomerContInfo({ name, phone, city: customerContInfo.city, address });
+        saveCustomerInfoToStorage(name, email, phone, customerContInfo.city, address);
+        setCustomerContInfo({ name, email, phone, city: customerContInfo.city, address });
       }
       handleClose();
     },
