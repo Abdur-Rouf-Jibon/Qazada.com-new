@@ -144,7 +144,7 @@ export default function Navbar() {
               </Grid2>
               <Grid2 sx={{ display: { xs: "none", md: "block" } }}>
                 <Link href="/" className="logo-link">
-                  <img src={`/images/houseofbra-logo.png`} alt="logo" className="header-logo" />
+                  <img src={`/images/qazada-logo.png`} alt="logo" className="header-logo" />
                 </Link>
               </Grid2>
               <Grid2 sx={{ display: { xs: "none", md: "block" }, flex: 1 }}>
@@ -161,7 +161,7 @@ export default function Navbar() {
                 {/* <SearchBar /> */}
                 <Link href="/" className="logo-link">
                   <img
-                    src={`/images/houseofbra-logo.png`}
+                    src={`/images/qazada-logo.png`}
                     alt="logo"
                     className="header-logo"
                     style={{ maxHeight: "50px", margin: "8px 10px 0 10px" }}
