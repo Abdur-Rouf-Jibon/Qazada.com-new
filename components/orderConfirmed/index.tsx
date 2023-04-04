@@ -119,7 +119,7 @@ export default function OrderConfirmed({ id }: { id: string }) {
                   <strong>00974&nbsp;50303100</strong>.
                 </li>
                 <li>
-                  Share these amazing products with your family and friend in Qatar by WhatsApp.{" "}
+                  Share these amazing products with your family and friend in UAE by WhatsApp.{" "}
                   <MuiLink
                     href={appConfig.product.whatsappShare}
                     sx={styles.whatsappLink}
