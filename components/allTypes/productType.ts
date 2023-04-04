@@ -7,6 +7,7 @@ export interface ProductsData {
   product_type: ProductType[];
   allowNegativeInventory: boolean;
   product_sku: string;
+  product_slug: string;
   image_name: ImageName[];
   product_attributes: ProductAttribute[];
   supplier_name: string;

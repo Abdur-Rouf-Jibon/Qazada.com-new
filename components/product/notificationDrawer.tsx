@@ -81,6 +81,8 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
         },
         skip: pageParam,
         limit: 32,
+        sort: { modified_date: -1,_id: -1 }
+        
       })
     ).data.data as ProductsData[];
   };
@@ -191,7 +193,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
               // bgcolor={yellow[600]}
             >
               <span style={{ fontWeight: 700, fontSize: "20px", lineHeight: "138.52%" }}>
-              Top Sellers
+                Top Sellers
               </span>
             </Typography>
             <Grid container rowSpacing={{ xs: 1, md: 2 }} direction="column">
@@ -204,10 +206,10 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                     sx={{ width: "100%" }}
                     // justifyContent="space-between"
                     wrap="nowrap"
-                    key={product._id}
+                    key={product.product_slug}
                   >
                     <Grid item>
-                      <Link href={`/product/${product._id}`} legacyBehavior>
+                      <Link href={`/product/${product.product_slug}`} legacyBehavior>
                         <img
                           src={`${appConfig.api.imgUrl}/${product.image_name[0].name}`}
                           alt="cart-product-thumb"
@@ -220,7 +222,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                     <Grid item>
                       <Typography variant="body2" component="div">
                         <Link
-                          href={`/product/${product._id}`}
+                          href={`/product/${product.product_slug}`}
                           className="cart-product-title"
                           onClick={handleCloseNotificationDrawer}
                         >
@@ -245,10 +247,8 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                           bgcolor={grey[900]}
                           component="div"
                         >
-                          <span style={{color:'#fff',display:'flex',alignItems:'center'}}>
-                            <span style={{ fontSize: "10px" }}>
-                              {appConfig.product.currency}
-                            </span>
+                          <span style={{ color: "#fff", display: "flex", alignItems: "center" }}>
+                            <span style={{ fontSize: "10px" }}>{appConfig.product.currency}</span>
                             &nbsp;{" "}
                             {product.location_data[0].discounted_price &&
                             product.location_data[0].discounted_price > 0
@@ -269,7 +269,7 @@ export const NotificationDrawer = ({ open, categoryId, categoryName, toggleDrawe
                     </Grid>
                     <Grid item ml="auto" mr={1}>
                       <Stack alignItems="center">
-                        <Link href={`/product/${product._id}`}>
+                        <Link href={`/product/${product.product_slug}`}>
                           <BlackButton
                             disableElevation
                             sx={{

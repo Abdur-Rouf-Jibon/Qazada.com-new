@@ -84,7 +84,7 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                 sx={styles.prodCardStyles}
               >
                 {currIndex === index && item.image_name.length ? (
-                  <Link href={`/product/${item._id}`}>
+                  <Link href={`/product/${item.product_slug}`}>
                     <Paper
                       elevation={4}
                       className={`prod-box-${index}`}
@@ -145,7 +145,7 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                     </Paper>
                   </Link>
                 ) : (
-                  <Link href={`/product/${item._id}`}>
+                  <Link href={`/product/${item.product_slug}`}>
                     <Paper elevation={4}>
                       <Box sx={{ position: "relative" }}>
                         {appConfig.product.displayYoutubeThumbnail && item.youtube_link ? (

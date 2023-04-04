@@ -142,7 +142,7 @@ export const Product = ({ id }: { id: string }) => {
         const { data } = await axios.post("/api/store/product/catalog/query/get", {
           models: {
             "location_data.website_remarks": `${appConfig.api.locationId}_Live`,
-            _id: id,
+            product_slug: id,
           },
         });
         return data as Products;
@@ -187,7 +187,7 @@ export const Product = ({ id }: { id: string }) => {
         appConfig.apiRoutes.productInventoryBulkRoute,
         {
           models: {
-            parent_id: id,
+            parent_id: productData._id,
             "product_quantity.value": `${appConfig.api.locationId}`,
           },
         }

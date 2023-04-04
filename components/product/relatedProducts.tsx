@@ -37,6 +37,7 @@ export const RelatedProducts = ({ categoryId, categoryName }: Props) => {
         },
         skip: pageParam,
         limit: 32,
+        sort: { modified_date: -1,_id: -1 }
       })
     ).data.data as ProductsData[];
   };

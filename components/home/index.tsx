@@ -22,7 +22,7 @@ export default function Home() {
       },
       skip: 0,
       limit: 32,
-      sort: { modified_date: -1 },
+      sort: { modified_date: -1,_id: -1 },
     });
     return data as Products;
   });
@@ -35,7 +35,7 @@ export default function Home() {
       },
       skip: 0,
       limit: 32,
-      sort: { modified_date: -1 },
+      sort: { modified_date: -1,_id: -1 },
     });
     return data as Products;
   });
