@@ -39,7 +39,7 @@ export default function TermsAndConditions() {
             <li>
               <b>Replacement:</b>In case of replacement there will be no delivery charges applicable
               for the below reasons. Apart from the below reason customer will be asked to pay
-              delivery charge of 10 {appConfig.product.currency} for replacement
+              delivery charge of 12 {appConfig.product.currency} for replacement
               <ol>
                 <li>Wrong Product delivered</li>
                 <li>Damaged / Defective product delivered</li>

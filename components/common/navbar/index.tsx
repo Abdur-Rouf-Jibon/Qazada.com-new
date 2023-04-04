@@ -164,7 +164,7 @@ export default function Navbar() {
                     src={`/images/qazada-logo.png`}
                     alt="logo"
                     className="header-logo"
-                    style={{ maxHeight: "50px", margin: "8px 10px 0 10px" }}
+                    style={{ maxHeight: "25px", margin: "8px 10px 0 10px",padding:0 }}
                   />
                 </Link>
               </Grid2>

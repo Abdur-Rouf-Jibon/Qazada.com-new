@@ -18,7 +18,8 @@ export const navbarStyles: muiSxPropType = {
 export const appbarStyles: muiSxPropType = {
   "& .header-logo": {
     maxHeight: {
-      xs: "60px",
+      xs: "50px",
+      padding:"8px 0",
     },
   },
   "& .nav-item": {

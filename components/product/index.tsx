@@ -828,15 +828,15 @@ export const Product = ({ id }: { id: string }) => {
             </form>
             <Typography pt={1} variant="body2">
               <span>
-                <strong style={{ color: "red" }}>Delivery Time:</strong> 1 Working day between 11 AM till 8 PM
+                <span style={{ color: "red" }}>Delivery Time:</span> 1 Working day between 11 AM till 8 PM
               </span>
               <br />
               <span>
-                <strong style={{ color: "red" }}>Delivery Charge:</strong> FREE above 150 {appConfig.product.currency}. 10 {appConfig.product.currency} below 150.
+                <span style={{ color: "red" }}>Delivery Charge:</span> FREE above 150 {appConfig.product.currency}. 10 {appConfig.product.currency} below 150.
               </span>
               <br />
               <span>
-                <strong style={{ color: "red" }}>Return & Replacement:</strong> In 24 Hours. No questions asked
+                <span style={{ color: "red" }}>Return & Replacement:</span> In 24 Hours. No questions asked
               </span>
             </Typography>
           </Grid>
