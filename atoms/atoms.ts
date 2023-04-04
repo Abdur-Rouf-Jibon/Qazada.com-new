@@ -31,7 +31,7 @@ export const selectedSubSKUAtom = atom<SubSku | null>({
 
 export const topBannerAtom = atom<boolean>({
   key: "display-top-banner",
-  default: true,
+  default: false,
 });
 
 export const currentProductIdAtom = atom<string | null>({
