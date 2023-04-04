@@ -42,6 +42,7 @@ export const appbarStyles: muiSxPropType = {
   "& .nav-item-active": {
     borderBottom: `3px solid ${appColors.primary}`,
   },
+  position: { xs: "relative", md: "fixed" } 
 };
 
 export const actionNavStyles: muiSxPropType = {
