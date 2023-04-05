@@ -45,7 +45,7 @@ const qtdealz: ConfigsType = {
   },
   head: {
     home: {
-      title: "Qazada - Online Shopping in Qatar for Fashion, Apparel, women shoes | Qazada.com",
+      title: "Qazada - Online shopping in Middle East. Fashion , Apparel, Shoes, Tops,  & More . 80 % OFF. High Quality Low Prices",
       description:
         "Discount shopping in Qatar. Free shipping! Cash on Delivery! 24 hours customer service. Buy fashion clothing, women fashion, kid toys, home appliances, shoes, bags, books, etc.",
       keywords: "Qazada, Qatar online shopping, women fashion, discount, fashion, new",
