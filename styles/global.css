@@ -59,6 +59,7 @@ footer {
   color: var(--grey-text-color);
 }
 .footer-credit {
+  display: none;
   background-color: var(--grey-second-bg);
   padding: 30px;
 }
