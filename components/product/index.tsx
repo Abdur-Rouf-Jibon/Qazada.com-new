@@ -326,7 +326,7 @@ export const Product = ({ id }: { id: string }) => {
     if (designValue) {
       design = getProdAttrDataByValue(productData!.design, designValue);
     }
-    if (address && phone && email && name && city) {
+    if (address && phone && name && city) {
       // setUserContactInfo({ address, phone, name, city });
       saveCustomerInfoToStorage(name, phone, email, city, address);
       setCustomerContInfo({ name, phone, email, city, address });
