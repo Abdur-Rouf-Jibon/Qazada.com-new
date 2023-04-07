@@ -11,12 +11,11 @@ export default function TermsAndConditions() {
       </Head>
       <Container sx={{ my: 4 }} component="div">
         <h2>
-          QTDEALZ.COM - Online portal of Dee Vinci Trading WLL, Office 14, Building Number 226
-          street number 230 Zone 25, OPP AL EMADI BUSINESS CENTRE, NAJMA, C RING RD, Doha, Qatar:
+          Qazada.COM - Online portal of Dee Vinci International FZE LLC . Media City. United Arab Emirates:
         </h2>
         <div>
           Following below are the terms and conditions that govern the use of site on all of
-          Qtdealz.com platforms i.e., www.Qtdealz.com and mobile applications. Please check Terms of
+          Qazada.com platforms i.e., www.Qazada.com and mobile applications. Please check Terms of
           use periodically. By Placing an order on the site, the customer agrees to the below
           mentioned Terms and conditions and privacy policy as specified.
         </div>
@@ -52,9 +51,9 @@ export default function TermsAndConditions() {
         <div>
           <ul>
             <li>
-              QTDEALZ customers can cancel their order any time before the order is&nbsp;
+              Qazada customers can cancel their order any time before the order is&nbsp;
               <b>scheduled for delivery</b>&nbsp;and handed over to the Courier. For any cancelled
-              orders QTDEALZ issues&nbsp;<b>full refund</b>&nbsp;that may take up to&nbsp;
+              orders Qazada issues&nbsp;<b>full refund</b>&nbsp;that may take up to&nbsp;
               <b>3 to 30 working days</b>&nbsp;depending on the payment method and card issuing bank
               policy.
             </li>
@@ -145,7 +144,7 @@ export default function TermsAndConditions() {
             <li>
               Other sites accessible through our site have their own privacy policies and data
               collection practices. Please consult each site's privacy policy for more
-              information.&nbsp;<b>Qtdealz.com</b>&nbsp;is not responsible for the actions of third
+              information.&nbsp;<b>Qazada.com</b>&nbsp;is not responsible for the actions of third
               parties.
             </li>
           </ul>
@@ -155,7 +154,7 @@ export default function TermsAndConditions() {
           <ul>
             <li>
               This site may contain links to other sites on the Internet that are owned and operated
-              by third parties. You acknowledge that&nbsp;<b>Qtdealz.com</b>&nbsp;is not responsible
+              by third parties. You acknowledge that&nbsp;<b>Qazada.com</b>&nbsp;is not responsible
               for the operation of, or content located on or throughout any such site.
             </li>
           </ul>
@@ -165,12 +164,12 @@ export default function TermsAndConditions() {
           <ul>
             <li>
               In the event a product is listed at an incorrect price due to typographical error
-              through our publishing department or any technical issues,&nbsp;<b>Qtdealz.com</b>
+              through our publishing department or any technical issues,&nbsp;<b>Qazada.com</b>
               &nbsp;shall have the right to refuse or cancel any orders placed for products listed
-              at the incorrect price.&nbsp;<b>Qtdealz.com</b>&nbsp;shall also have the right to
+              at the incorrect price.&nbsp;<b>Qazada.com</b>&nbsp;shall also have the right to
               refuse or cancel any such orders whether or not the order has been confirmed and your
               credit card charged. If your credit card has already been charged for the purchase and
-              your order is canceled,&nbsp;<b>Qtdealz.com&nbsp;</b>will issue a refund to your card
+              your order is canceled,&nbsp;<b>Qazada.com&nbsp;</b>will issue a refund to your card
               in the amount of the incorrect price.
             </li>
           </ul>
@@ -181,7 +180,7 @@ export default function TermsAndConditions() {
             <li>
               Your receipt of an electronic or another form of order confirmation does not signify
               our acceptance of your order, nor does it constitute confirmation of our offer to
-              sell.&nbsp;<b>Qtdealz.com</b>&nbsp;reserves the right at any time after receipt of
+              sell.&nbsp;<b>Qazada.com</b>&nbsp;reserves the right at any time after receipt of
               your order to accept or decline your order for any reason or to supply less than the
               quantity you ordered of any item.
             </li>
@@ -191,7 +190,7 @@ export default function TermsAndConditions() {
         <div>
           <ul>
             <li>
-              Qtdealz.com will not trade or provide services to&nbsp;<b>OFAC or sanctioned</b>
+              Qazada.com will not trade or provide services to&nbsp;<b>OFAC or sanctioned</b>
               &nbsp;countries.
             </li>
             <li>Accepted modes of payments are Cash on delivery</li>
@@ -202,8 +201,8 @@ export default function TermsAndConditions() {
             </li>
             <li>
               These conditions will supersede any terms and/or conditions you include with any
-              purchase order, regardless of whether&nbsp;<b>Qtdealz.com</b>&nbsp;signs them or
-              not.&nbsp;<b>Qtdealz.com</b>&nbsp;reserves the right to make changes to this site and
+              purchase order, regardless of whether&nbsp;<b>Qazada.com</b>&nbsp;signs them or
+              not.&nbsp;<b>Qazada.com</b>&nbsp;reserves the right to make changes to this site and
               these conditions at any time.
             </li>
           </ul>
@@ -215,7 +214,7 @@ export default function TermsAndConditions() {
               Unless otherwise specified, all materials appearing on this site; including text, site
               design, logos, graphics, icons, and images, as well as the selection, assembly, and
               arrangement thereof, are the sole property of&nbsp;
-              <b>Qtdealz.com, Copyright ©, All Rights Reserved</b>. You may use the content of this
+              <b>Qazada.com, Copyright ©, All Rights Reserved</b>. You may use the content of this
               site only for the purpose of shopping in this store or placing an order and for no
               other purpose. No materials from this site may be copied, reproduced, modified,
               republished, uploaded, posted, transmitted, or distributed in any form or by any means
@@ -226,11 +225,11 @@ export default function TermsAndConditions() {
             </li>
           </ul>
         </div>
-        <h2>QTDEALZ.COM MARKETPLACE</h2>
+        <h2>Qazada.COM MARKETPLACE</h2>
         <div>
           <ul>
             <li>
-              <b>Qtdealz.com </b>
+              <b>Qazada.com </b>
               respects the rights and trademark of all the products and brands and does not allow
               any vendor or supp&nbsp;ier or seller to sell products that are prohibited under the
               same.

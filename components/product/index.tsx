@@ -238,7 +238,6 @@ export const Product = ({ id }: { id: string }) => {
     city: yup.string().min(2).required("City is required"),
     name: yup.string().min(2, "Enter a valid Name").required("Name is required"),
     phone: yup.string().length(8, "Enter a valid Number").required("Number is required"),
-    email: yup.string().email("Enter a valid Email").required("Email is required"),
     address: yup.string().min(1).required("Address is required"),
   });
 
@@ -722,12 +721,12 @@ export const Product = ({ id }: { id: string }) => {
                       <TextField
                         name="phone"
                         className="phone-text-field"
-                        placeholder="Contact Number"
+                        placeholder="Eg. 5511111 or 509258531"
                         variant="outlined"
                         type="number"
                         fullWidth
                         InputProps={{
-                          startAdornment: <InputAdornment position="start">+974</InputAdornment>,
+                          startAdornment: <InputAdornment position="start">+971</InputAdornment>,
                         }}
                         value={formik.values.phone}
                         onChange={formik.handleChange}

@@ -62,12 +62,14 @@ export const Slider: React.FC<Props> = ({ images, youtubeLink }) => {
           {youtubeLink && (
             <SwiperSlide>
               {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
+              <div className="iframe-container-div">
               <iframe
                 src={`https://www.youtube.com/embed/${youtubeLink}`}
-                width="100%"
-                height="100%"
                 frameBorder="0"
               ></iframe>
+              </div>
+              
+              
             </SwiperSlide>
           )}
           {images?.map((name, index) => (

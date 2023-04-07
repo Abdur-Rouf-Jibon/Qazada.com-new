@@ -13,9 +13,9 @@ const qtdealz: ConfigsType = {
   contact: {
     whatsapp:
       "https://api.whatsapp.com/send?phone=+97477857469&text=I%20have%20a%20question%20can%20you%20assist%20me%20",
-    email: "info@qtdealz.com",
+    email: "Info@Qazada.com",
     address:
-      "Dee Vinci Trading WLL, Office 14, Building Number 226 street number 230 Zone 25, OPP AL EMADI BUSINESS CENTRE, NAJMA, C RING RD, Doha, Qatar",
+      "Dee Vinci International FZE LLC . Media City. United Arab Emirates",
     phone: "+974 5030 3100",
   },
   product: {

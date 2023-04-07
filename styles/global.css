@@ -238,6 +238,9 @@ footer .Mui-disabled {
   opacity: 1;
 }
 
+.pd-details .swiper-slide .iframe-container-div::after { content: ""; background: transparent; width: 100%; height: 100%; min-height: 1px; position: absolute; top: 0; }
+.pd-details .swiper-slide .iframe-container-div,
+.pd-details .swiper-slide iframe,
 .pd-details .swiper-slide img {
   display: block;
   width: 100%;

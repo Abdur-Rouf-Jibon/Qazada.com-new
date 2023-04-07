@@ -19,6 +19,8 @@ import appConfig from "../../../config";
 import { appColors, appStyles } from "../appColors";
 
 const TagButtonsStyle = {
+  margin:0,
+  marginLeft:'0px !important',
   textTransform: "capitalize",
   borderRadius: "0",
   borderColor: "#444444",
@@ -174,15 +176,35 @@ const Footer = () => {
             </AccordionSummary>
             <AccordionDetails>
               <div className="accordion-details footer-tags">
-                <Stack spacing={2} direction="row">
+                <Stack spacing={2} direction="row" style={{flexWrap:'wrap',gap:'10px'}}>
+                  {/* , ,  ,  ,  , ,  ,  ,
+                   */}
                   <Button variant="outlined" sx={TagButtonsStyle}>
-                    Men
+                    Women Shoes
                   </Button>
                   <Button variant="outlined" sx={TagButtonsStyle}>
-                    Fashion
+                    Handbags
                   </Button>
                   <Button variant="outlined" sx={TagButtonsStyle}>
-                    Gallery
+                    Clothes
+                  </Button>
+                  <Button variant="outlined" sx={TagButtonsStyle}>
+                    Accessories
+                  </Button>
+                  <Button variant="outlined" sx={TagButtonsStyle}>
+                    Lingerie
+                  </Button>
+                  <Button variant="outlined" sx={TagButtonsStyle}>
+                    Home Décor
+                  </Button>
+                  <Button variant="outlined" sx={TagButtonsStyle}>
+                    Kids Wear
+                  </Button>
+                  <Button variant="outlined" sx={TagButtonsStyle}>
+                    Automotive
+                  </Button>
+                  <Button variant="outlined" sx={TagButtonsStyle}>
+                    Jewelry
                   </Button>
                 </Stack>
               </div>
@@ -301,7 +323,7 @@ const Footer = () => {
           </Grid>
         </nav>
         <Typography variant="body1" mt={1} className="footer-copyright">
-          Copyright © 2022-{appConfig.name}. All rights reserved.
+          Copyright © {new Date().getFullYear()}-{appConfig.name}. All rights reserved.
         </Typography>
       </div>
     </footer>
