@@ -12,7 +12,7 @@ const qtdealz: ConfigsType = {
   },
   contact: {
     whatsapp:
-      "https://api.whatsapp.com/send?phone=+97477857469&text=I%20have%20a%20question%20can%20you%20assist%20me%20",
+      "https://api.whatsapp.com/send?phone=+971528785046&text=I%20have%20a%20question%20can%20you%20assist%20me%20",
     email: "Info@Qazada.com",
     address:
       "Dee Vinci International FZE LLC . Media City. United Arab Emirates",
