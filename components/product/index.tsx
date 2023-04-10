@@ -237,7 +237,7 @@ export const Product = ({ id }: { id: string }) => {
     qty: yup.number().min(1).required("Quantity is required"),
     city: yup.string().min(2).required("City is required"),
     name: yup.string().min(2, "Enter a valid Name").required("Name is required"),
-    phone: yup.string().length(8, "Enter a valid Number").required("Number is required"),
+    phone: yup.string().length(9, "Enter a valid Number").required("Number is required"),
     address: yup.string().min(1).required("Address is required"),
   });
 
@@ -721,7 +721,7 @@ export const Product = ({ id }: { id: string }) => {
                       <TextField
                         name="phone"
                         className="phone-text-field"
-                        placeholder="Eg. 5511111 or 509258531"
+                        placeholder="Eg. 55xxxxxxx or 50xxxxxxx"
                         variant="outlined"
                         type="number"
                         fullWidth

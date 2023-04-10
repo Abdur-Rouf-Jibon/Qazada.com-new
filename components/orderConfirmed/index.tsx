@@ -110,16 +110,15 @@ export default function OrderConfirmed({ id }: { id: string }) {
                   />
                 </li>
                 <li>
-                  Our delivery team will contact you on your mobile number. Please pick calls from
-                  mobile number
+                Our delivery team will contact you on your mobile number. Please pick calls from mobile number
                 </li>
                 <li>You will pay the amount as COD (Cash on delivery)</li>
                 <li>
                   For any question or queries please contact us at{" "}
-                  <strong>00974&nbsp;50303100</strong>.
+                  <strong>00971528785046</strong>.
                 </li>
                 <li>
-                  Share these amazing products with your family and friend in UAE by WhatsApp.{" "}
+                Share these amazing products with your family and friend in UAE by WhatsApp.{" "}
                   <MuiLink
                     href={appConfig.product.whatsappShare}
                     sx={styles.whatsappLink}

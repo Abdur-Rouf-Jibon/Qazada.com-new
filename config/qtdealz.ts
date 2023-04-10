@@ -23,7 +23,7 @@ const qtdealz: ConfigsType = {
     // prettier-ignore
     cities: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Fujairah", "Ras Al khaimah", "Al Ain"],
     whatsappShare:
-      "https://api.whatsapp.com/send?phone=+97477857469&text=I%20just%20bought%20something%20amazing%20from%20this%20QATAR%20based%20website.%20Check%20out%20their%20cool%20products",
+      "https://api.whatsapp.com/send?phone=+971528785046&text=I%20have%20a%20question%20can%20you%20assist%20me%20",
     invoiceLink: "https://office21.dealizzle.com/api/store/customer/order/pdf?order_number=",
     vat: false,
     displayYoutubeThumbnail: false,
