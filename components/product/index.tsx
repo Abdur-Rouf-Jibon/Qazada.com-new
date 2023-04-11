@@ -58,7 +58,7 @@ import { BlackButton, YellowButton } from "components/common/styled/buttons";
 import { RelatedProducts } from "./relatedProducts";
 import { NotificationDrawer } from "./notificationDrawer";
 import { ProductFeedback } from "./feedback";
-const [currentProdId, setCurrProdId] = useRecoilState(currentProductIdAtom);
+
 
 
 
@@ -88,6 +88,7 @@ export const Product = ({ id }: { id: string }) => {
   const queryClient = useQueryClient();
   const theme = useTheme();
   const setCartDrawerEl = useSetRecoilState(cartDrawerElAtom);
+  const [currentProdId, setCurrProdId] = useRecoilState(currentProductIdAtom);
   const [notificationDrawerEl, setNotificationDrawerEl] = useRecoilState(notificationDrawerElAtom);
   const [selectedSubSku, setSelectedSubSku] = useRecoilState(selectedSubSKUAtom);
   const [customerContInfo, setCustomerContInfo] = useRecoilState(customerContactInfo);
