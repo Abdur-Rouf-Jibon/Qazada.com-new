@@ -14,7 +14,7 @@ import { Controller, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import * as styles from "./style";
 
-export const ProductFeedback = ({ productId }: { productId: string }) => {
+export const ProductFeedback = ({ productId }: { productId: any }) => {
   const {
     status,
     data,

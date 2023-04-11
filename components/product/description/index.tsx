@@ -29,7 +29,7 @@ function TabPanel(props: Description) {
 }
 
 interface Props {
-  productId: string;
+  productId: any;
   finePrint?: string;
   productDescription?: string;
 }

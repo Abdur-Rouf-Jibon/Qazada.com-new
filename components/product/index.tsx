@@ -846,12 +846,13 @@ export const Product = ({ id }: { id: string }) => {
           </Grid>
         </Grid>
         <Box>
-          <DescriptionTabs
-            productId={productData?._id}
+          {currentProdId &&  <DescriptionTabs
+            productId={currentProdId}
             finePrint={productData?.fine_print}
             productDescription={productData?.product_description}
-          />
-          <ProductFeedback productId={productData?._id} />
+          />}
+         
+         {currentProdId && <ProductFeedback productId={currentProdId} />} 
           {productCategory && (
             <RelatedProducts
               categoryId={productCategory.value}
