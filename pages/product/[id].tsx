@@ -9,13 +9,13 @@ import { useRecoilState } from "recoil";
 
 export default function ProductPage() {
   const router = useRouter();
-  const [currentProdId, setCurrProdId] = useRecoilState(currentProductIdAtom);
+  // const [currentProdId, setCurrProdId] = useRecoilState(currentProductIdAtom);
   const { id } = router.query;
-  useEffect(() => {
-    if (id) {
-      setCurrProdId(id as string);
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   if (id) {
+  //     setCurrProdId(id as string);
+  //   }
+  // }, [id]);
   return (
     <HomeLayout>
       <HeadTags contents={appConfig.head.home} />

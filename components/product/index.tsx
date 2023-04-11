@@ -31,7 +31,7 @@ import React, { useEffect, useState } from "react";
 import { useIsFetching, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import * as yup from "yup";
-import { cartDrawerElAtom, customerContactInfo, selectedSubSKUAtom, notificationDrawerElAtom } from "../../atoms/atoms";
+import { cartDrawerElAtom, customerContactInfo, selectedSubSKUAtom, notificationDrawerElAtom, currentProductIdAtom } from "../../atoms/atoms";
 import {
   LocationDatum,
   LocationDetails,
@@ -58,6 +58,7 @@ import { BlackButton, YellowButton } from "components/common/styled/buttons";
 import { RelatedProducts } from "./relatedProducts";
 import { NotificationDrawer } from "./notificationDrawer";
 import { ProductFeedback } from "./feedback";
+const [currentProdId, setCurrProdId] = useRecoilState(currentProductIdAtom);
 
 
 
@@ -187,7 +188,7 @@ export const Product = ({ id }: { id: string }) => {
         appConfig.apiRoutes.productInventoryBulkRoute,
         {
           models: {
-            parent_id: id,
+            parent_id: productData?._id,
             "product_quantity.value": `${appConfig.api.locationId}`,
           },
         }
@@ -208,6 +209,7 @@ export const Product = ({ id }: { id: string }) => {
 
   useEffect(() => {
     if (productData) {
+      setCurrProdId(productData._id as string);
       const subSkuImages = map(productData.sub_sku, "image_url");
       const productImages = map(productData.image_name, "name");
       const allImages = concat(subSkuImages, productImages);
@@ -276,7 +278,7 @@ export const Product = ({ id }: { id: string }) => {
         if (subSKU) {
           setSelectedSubSku(subSKU);
           productInventoryMutation.mutate(subSKU._id);
-          if (!productInventoryBulkMutation.data) {
+          if (!productInventoryBulkMutation.data && productData) {
             productInventoryBulkMutation.mutate();
           }
         }
