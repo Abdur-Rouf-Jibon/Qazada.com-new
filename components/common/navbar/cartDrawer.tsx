@@ -311,8 +311,24 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
                           </Typography>
                         </TableCell>
                       </TableRow>
-                      <TableRow>
+                      <TableRow sx={styles.tableRowWithNoBorder}>
                         <TableCell>Shipping Fee</TableCell>
+                        <TableCell align="right">
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: "green"
+                            }}
+                          >
+                            <b>
+                              {cartProducts ? cartProducts.cod_details.delivery_charge : 0}
+                              &nbsp;{appConfig.product.currency}
+                            </b>
+                          </Typography>
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>Vat</TableCell>
                         <TableCell align="right">
                           <Typography
                             variant="body2"
@@ -321,7 +337,7 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
                             }}
                           >
                             <b>
-                              {cartProducts ? cartProducts.cod_details.delivery_charge : 0}
+                              {cartProducts ? (cartProducts.cod_details.total_amount - (cartProducts.cod_details.cart_amount + cartProducts.cod_details.delivery_charge)) : 0}
                               &nbsp;{appConfig.product.currency}
                             </b>
                           </Typography>
