@@ -187,7 +187,7 @@ export const Product = ({ id }: { id: string }) => {
         appConfig.apiRoutes.productInventoryBulkRoute,
         {
           models: {
-            parent_id: productData?._id,
+            parent_id: id,
             "product_quantity.value": `${appConfig.api.locationId}`,
           },
         }
