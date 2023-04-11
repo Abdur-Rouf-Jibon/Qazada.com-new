@@ -847,11 +847,11 @@ export const Product = ({ id }: { id: string }) => {
         </Grid>
         <Box>
           <DescriptionTabs
-            productId={id}
+            productId={productData?._id}
             finePrint={productData?.fine_print}
             productDescription={productData?.product_description}
           />
-          <ProductFeedback productId={id} />
+          <ProductFeedback productId={productData?._id} />
           {productCategory && (
             <RelatedProducts
               categoryId={productCategory.value}
