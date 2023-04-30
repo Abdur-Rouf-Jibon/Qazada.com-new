@@ -50,7 +50,7 @@ const qtdealz: ConfigsType = {
         "Discount online shopping in Middle East. Dubai UAE QATAR OMAN KSA",
       keywords: "Qazada, Qatar online shopping, women fashion, discount, fashion, new",
       url: `${process.env.NEXT_PUBLIC_URL}`,
-      imgURL: `${process.env.NEXT_PUBLIC_URL}/images/${process.env.NEXT_PUBLIC_CONFIG}-logo.png`,
+      imgURL: `${process.env.NEXT_PUBLIC_URL}/images/qazada-meta-logo.jpg`,
     },
     newArrivalCat: {
       title: "Buy Best Women Online At Cheap Price, Women & Qatar Shopping",
@@ -58,7 +58,7 @@ const qtdealz: ConfigsType = {
         "Qazada big discount sale in Qatar, women clothes, women shoes, women fashion Qatar",
       keywords: "big discount women fashion, women clothes, online shopping Qatar",
       url: `${process.env.NEXT_PUBLIC_URL}`,
-      imgURL: `${process.env.NEXT_PUBLIC_URL}/images/${process.env.NEXT_PUBLIC_CONFIG}-logo.png`,
+      imgURL: `${process.env.NEXT_PUBLIC_URL}/images/qazada-meta-logo.jpg`,
     },
     clearanceCat: {
       title: "Big discount Qatar, women clothes Qatar, free shipping Qatar, women fashion Qatar",
@@ -66,7 +66,7 @@ const qtdealz: ConfigsType = {
         "Qazada big discount sale in Qatar, women clothes, women shoes, women fashion Qatar",
       keywords: "women shoes, women fashion, women clothes, online shopping Qatar",
       url: `${process.env.NEXT_PUBLIC_URL}`,
-      imgURL: `${process.env.NEXT_PUBLIC_URL}/images/${process.env.NEXT_PUBLIC_CONFIG}-logo.png`,
+      imgURL: `${process.env.NEXT_PUBLIC_URL}/images/qazada-meta-logo.jpg`,
     },
   },
   siteInfo: {
