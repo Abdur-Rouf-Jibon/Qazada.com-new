@@ -93,7 +93,7 @@ export const NegativeInventoryModal = ({
             <Typography>Dear Customer,</Typography>
             <Typography component={"ul"}>
               <Typography component={"li"}>
-                This product can be delivered in <span className="red-text">15 to 17 days</span>.
+                This product can be delivered in <span className="red-text">7 to 9 days</span>.
               </Typography>
               <Typography component={"li"}>
                 If you refuse the order at the time of delivery we will have a{" "}

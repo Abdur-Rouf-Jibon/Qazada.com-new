@@ -47,21 +47,21 @@ export default function OrderConfirmed({ id }: { id: string }) {
                 <Grid>
                   <Box component="ul" sx={styles.priceContainer}>
                     <li>
-                      <strong>Product Total:</strong>&nbsp;{orderData.order_price}{" "}
+                      <strong>Product Total:</strong>&nbsp;{orderData.order_price.toFixed(2)}{" "}
                       <span>{appConfig.product.currency}</span>
                     </li>
                     <li>
-                      <strong>Shipping:</strong> {orderData.delivery_charge}{" "}
+                      <strong>Shipping:</strong> {orderData.delivery_charge.toFixed(2)}{" "}
                       <span>{appConfig.product.currency}</span>
                     </li>
                     {appConfig.product.vat && (
                       <li>
-                        <strong>Vat:</strong> {orderData.vat_amount}{" "}
+                        <strong>Vat:</strong> {orderData.vat_amount.toFixed(2)}{" "}
                         <span>{appConfig.product.currency}</span>
                       </li>
                     )}
                     <li>
-                      <strong>GRAND TOTAL:</strong> {orderData.total_amount}{" "}
+                      <strong>GRAND TOTAL:</strong> {orderData.total_amount.toFixed(2)}{" "}
                       <span>{appConfig.product.currency}</span>
                     </li>
                   </Box>

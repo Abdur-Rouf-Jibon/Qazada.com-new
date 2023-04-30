@@ -304,7 +304,7 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
                         <TableCell align="right">
                           <Typography variant="body2">
                             <b>
-                              {cartProducts ? cartProducts.cod_details.cart_amount : 0}
+                              {cartProducts ? (cartProducts.cod_details.cart_amount).toFixed(2) : 0}
                               &nbsp;
                               {appConfig.product.currency}
                             </b>
@@ -321,7 +321,7 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
                             }}
                           >
                             <b>
-                              {cartProducts ? cartProducts.cod_details.delivery_charge : 0}
+                              {cartProducts ? (cartProducts.cod_details.delivery_charge).toFixed(2) : 0}
                               &nbsp;{appConfig.product.currency}
                             </b>
                           </Typography>
@@ -337,7 +337,7 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
                             }}
                           >
                             <b>
-                              {cartProducts ? (cartProducts.cod_details.total_amount - (cartProducts.cod_details.cart_amount + cartProducts.cod_details.delivery_charge)) : 0}
+                              {cartProducts ? (cartProducts.cod_details.total_amount - (cartProducts.cod_details.cart_amount + cartProducts.cod_details.delivery_charge)).toFixed(2) : 0}
                               &nbsp;{appConfig.product.currency}
                             </b>
                           </Typography>
@@ -356,7 +356,7 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
                         <TableCell align="right">
                           <Typography variant="body2">
                             <b>
-                              {cartProducts ? cartProducts.cod_details.total_amount : 0}
+                              {cartProducts ? (cartProducts.cod_details.total_amount).toFixed(2) : 0}
                               &nbsp;{appConfig.product.currency}
                             </b>
                           </Typography>
