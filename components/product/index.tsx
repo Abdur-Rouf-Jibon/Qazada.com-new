@@ -703,8 +703,7 @@ export const Product = ({ id }: { id: string }) => {
                         variant="outlined"
                         placeholder="Enter Name"
                         fullWidth
-                        value={formik.values.name}
-                        onChange={formik.handleChange}
+                        onBlur={formik.handleChange}
                         error={formik.touched.name && Boolean(formik.errors.name)}
                         helperText={formik.touched.name && formik.errors.name}
                       />
@@ -716,8 +715,7 @@ export const Product = ({ id }: { id: string }) => {
                         variant="outlined"
                         placeholder="Enter Email"
                         fullWidth
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
+                        onBlur={formik.handleChange}
                         error={formik.touched.email && Boolean(formik.errors.email)}
                         helperText={formik.touched.email && formik.errors.email}
                       />
@@ -733,8 +731,7 @@ export const Product = ({ id }: { id: string }) => {
                         InputProps={{
                           startAdornment: <InputAdornment position="start">+971</InputAdornment>,
                         }}
-                        value={formik.values.phone}
-                        onChange={formik.handleChange}
+                        onBlur={formik.handleChange}
                         error={formik.touched.phone && Boolean(formik.errors.phone)}
                         helperText={formik.touched.phone && formik.errors.phone}
                       />
@@ -771,8 +768,7 @@ export const Product = ({ id }: { id: string }) => {
                         type="text"
                         placeholder="Delivery Address"
                         fullWidth
-                        value={formik.values.address}
-                        onChange={formik.handleChange}
+                        onBlur={formik.handleChange}
                         error={formik.touched.address && Boolean(formik.errors.address)}
                         helperText={formik.touched.address && formik.errors.address}
                       />
