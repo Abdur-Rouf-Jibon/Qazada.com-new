@@ -279,9 +279,9 @@ export const Product = ({ id }: { id: string }) => {
         if (subSKU) {
           setSelectedSubSku(subSKU);
           productInventoryMutation.mutate(subSKU._id);
-          if (!productInventoryBulkMutation.data && productData) {
-            productInventoryBulkMutation.mutate();
-          }
+          // if (!productInventoryBulkMutation.data && productData) {
+          //   productInventoryBulkMutation.mutate();
+          // }
         }
       } else {
         let subSKU: SubSku | undefined;
@@ -305,7 +305,7 @@ export const Product = ({ id }: { id: string }) => {
     return () => {
       productInventoryMutation.reset();
     };
-  }, [formik.values]);
+  }, [formik.values.colorValue,formik.values.sizeValue,formik.values.designValue]);
 
   const getAllProdAttrData = ({
     colorValue,
