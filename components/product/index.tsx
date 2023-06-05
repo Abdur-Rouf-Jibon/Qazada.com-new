@@ -896,7 +896,7 @@ export const Product = ({ id }: { id: string }) => {
             </form>
             <Typography pt={1} variant="body2">
               <span>
-                <span style={{ color: "red" }}>Delivery Time:</span> 7-9 days between 11 AM till 8
+                <span style={{ color: "red" }}>Delivery Time:</span> 1-3 days between 11 AM till 8
                 PM
               </span>
               <br />
