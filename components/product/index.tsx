@@ -820,7 +820,7 @@ export const Product = ({ id }: { id: string }) => {
                   </>
                 )}
 
-                <Typography pt={2} variant="body2">
+                <Typography pt={2} px={1} variant="body2">
                   <span>
                     <span style={{ color: "red" }}>Your measurement details below Eg:</span> Your
                     Shoulder Size, Height, Sleeve length, Bust Size, Hib
@@ -830,6 +830,7 @@ export const Product = ({ id }: { id: string }) => {
                   <TextField
                     name="special_instruction"
                     variant="outlined"
+                    multiline={true}
                     type="text"
                     placeholder="Enter Your measurement details"
                     fullWidth

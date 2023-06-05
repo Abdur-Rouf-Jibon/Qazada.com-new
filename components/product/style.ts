@@ -49,7 +49,13 @@ export const formGrid: muiSxPropType = {
     padding:1.5
   },
   "& .MuiInputBase-input": {
-    padding:.8
+    paddingTop:.8,
+    paddingBottom:.8,
+    paddingLeft:1.2,
+    paddingRight:1.2,
+  },
+  "& .MuiInputBase-multiline": {
+    padding:0
   },
 };
 
