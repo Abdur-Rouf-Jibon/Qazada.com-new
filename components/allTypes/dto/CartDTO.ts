@@ -23,6 +23,7 @@ export interface Models {
   product_price: number;
   product_cost: number;
   session_id: string;
+  special_instruction: string;
 }
 
 export interface AddProdToCartResponse {

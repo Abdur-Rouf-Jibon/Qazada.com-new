@@ -31,7 +31,13 @@ import React, { useEffect, useState } from "react";
 import { useIsFetching, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import * as yup from "yup";
-import { cartDrawerElAtom, customerContactInfo, selectedSubSKUAtom, notificationDrawerElAtom, currentProductIdAtom } from "../../atoms/atoms";
+import {
+  cartDrawerElAtom,
+  customerContactInfo,
+  selectedSubSKUAtom,
+  notificationDrawerElAtom,
+  currentProductIdAtom,
+} from "../../atoms/atoms";
 import {
   LocationDatum,
   LocationDetails,
@@ -59,9 +65,6 @@ import { RelatedProducts } from "./relatedProducts";
 import { NotificationDrawer } from "./notificationDrawer";
 import { ProductFeedback } from "./feedback";
 
-
-
-
 interface ProductFormValues {
   colorValue: string;
   sizeValue: string;
@@ -72,6 +75,7 @@ interface ProductFormValues {
   phone: string;
   city: string;
   address: string;
+  special_instruction: string;
 }
 
 enum CartFormBtnType {
@@ -101,18 +105,19 @@ export const Product = ({ id }: { id: string }) => {
   const isCartFetching = useIsFetching(["cartProducts"]) > 0;
   const mdMatches = useMediaQuery(theme.breakpoints.up("md"));
 
-  const toggleNotificaitonDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
-    ) {
-      return;
-    }
-  
-    setNotificationDrawerEl(open);
-  };
+  const toggleNotificaitonDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+
+      setNotificationDrawerEl(open);
+    };
 
   const formikInitialValues = {
     colorValue: "",
@@ -124,6 +129,7 @@ export const Product = ({ id }: { id: string }) => {
     email: "",
     city: "",
     address: "",
+    special_instruction: "",
   };
 
   const newOrderMutation = useMutation(postNewOrder, {
@@ -242,6 +248,7 @@ export const Product = ({ id }: { id: string }) => {
     name: yup.string().min(2, "Enter a valid Name").required("Name is required"),
     phone: yup.string().length(9, "Enter a valid Number").required("Number is required"),
     address: yup.string().min(1).required("Address is required"),
+    special_instruction: yup.string(),
   });
 
   const formik = useFormik<ProductFormValues>({
@@ -279,9 +286,9 @@ export const Product = ({ id }: { id: string }) => {
         if (subSKU) {
           setSelectedSubSku(subSKU);
           productInventoryMutation.mutate(subSKU._id);
-          // if (!productInventoryBulkMutation.data && productData) {
-          //   productInventoryBulkMutation.mutate();
-          // }
+          if (!productInventoryBulkMutation.data && productData) {
+            productInventoryBulkMutation.mutate();
+          }
         }
       } else {
         let subSKU: SubSku | undefined;
@@ -305,7 +312,7 @@ export const Product = ({ id }: { id: string }) => {
     return () => {
       productInventoryMutation.reset();
     };
-  }, [formik.values.colorValue,formik.values.sizeValue,formik.values.designValue]);
+  }, [formik.values.colorValue, formik.values.sizeValue, formik.values.designValue]);
 
   const getAllProdAttrData = ({
     colorValue,
@@ -344,7 +351,7 @@ export const Product = ({ id }: { id: string }) => {
 
   const addToCart = async (values: ProductFormValues) => {
     if (useLocationDetails && productInventoryMutation.data && productData) {
-      const { qty, city } = values;
+      const { qty, city, special_instruction } = values;
       const { color, size, design } = getAllProdAttrData(values);
       addProdToCartMutation.mutate(
         {
@@ -355,6 +362,7 @@ export const Product = ({ id }: { id: string }) => {
           qty,
           selectedSubSku,
           inventoryData: productInventoryMutation.data,
+          special_instruction,
         },
         {
           onSettled: async () => {
@@ -380,12 +388,12 @@ export const Product = ({ id }: { id: string }) => {
   const handleAddMore = () => {
     setOpenOrderModal(false);
   };
-  
+
   // const getRandomInt = () => {
   //   return Math.floor(Math.random() * (9 - 6) + 6); // The maximum is exclusive and the minimum is inclusive
   // };
 
-  const [getRandomInt,] = React.useState(Math.floor(Math.random() * (9 - 6) + 6))
+  const [getRandomInt] = React.useState(Math.floor(Math.random() * (9 - 6) + 6));
 
   const isCartMutating = (): boolean => {
     return addProdToCartMutation.isLoading || isCartFetching ? true : false;
@@ -434,13 +442,16 @@ export const Product = ({ id }: { id: string }) => {
         <Grid container mb={3} mt={1} justifyContent="space-evenly">
           <Grid item md={5} xs={12} sm={10}>
             <Typography
-                fontWeight={appStyles.w600}
-                fontSize={{ sm: "1.3rem",xs: ".9rem",  }}
-                color={appColors.blueDarkGrey}
-                gutterBottom
-                textAlign="center"
-              >
-                {productData?.product_name} - <span style={{fontSize:16, fontWeight: 400, marginBottom: 4}}>SKU-{productData?.product_sku}</span>
+              fontWeight={appStyles.w600}
+              fontSize={{ sm: "1.3rem", xs: ".9rem" }}
+              color={appColors.blueDarkGrey}
+              gutterBottom
+              textAlign="center"
+            >
+              {productData?.product_name} -{" "}
+              <span style={{ fontSize: 16, fontWeight: 400, marginBottom: 4 }}>
+                SKU-{productData?.product_sku}
+              </span>
             </Typography>
             {sliderImages && (
               <Slider images={sliderImages} youtubeLink={productData?.youtube_link} />
@@ -505,13 +516,46 @@ export const Product = ({ id }: { id: string }) => {
             >
               {productData?.special_offer_text}
             </Typography>
-            <Typography my={2} textAlign="center" fontSize={{ sm: "1rem",xs: ".8rem",  }}>
+            <Typography my={2} textAlign="center" fontSize={{ sm: "1rem", xs: ".8rem" }}>
               <strong>Order Now - </strong> Fill the form below for quick checkout
             </Typography>
-            <div style={{ padding: '0px 60px 0px 60px', display: 'flex', justifyContent: 'space-between', marginBottom: '20px'}}>
-              <div style={{ width: '120px', height: '35px', borderRadius: '5px', backgroundColor: 'green', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Sold{" "}
-              {productData && productData?.quantity_sold > 0 ? productData.quantity_sold * 9 : 0}</div>
-              <div style={{ width: '120px', height: '35px', borderRadius: '5px', backgroundColor: 'red', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>Left{" "}{getRandomInt}</div>
+            <div
+              style={{
+                padding: "0px 60px 0px 60px",
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  width: "120px",
+                  height: "35px",
+                  borderRadius: "5px",
+                  backgroundColor: "green",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "white",
+                }}
+              >
+                Sold{" "}
+                {productData && productData?.quantity_sold > 0 ? productData.quantity_sold * 9 : 0}
+              </div>
+              <div
+                style={{
+                  width: "120px",
+                  height: "35px",
+                  borderRadius: "5px",
+                  backgroundColor: "red",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "white",
+                }}
+              >
+                Left {getRandomInt}
+              </div>
             </div>
             <form className="order-form" onSubmit={formik.handleSubmit}>
               <Grid container spacing={1} sx={styles.formGrid} justifyContent="center">
@@ -775,6 +819,31 @@ export const Product = ({ id }: { id: string }) => {
                     </Grid>
                   </>
                 )}
+
+                <Typography pt={2} variant="body2">
+                  <span>
+                    <span style={{ color: "red" }}>Your measurement details below Eg:</span> Your
+                    Shoulder Size, Height, Sleeve length, Bust Size, Hib
+                  </span>
+                </Typography>
+                <Grid item xs={12} sm={8} md={12}>
+                  <TextField
+                    name="special_instruction"
+                    variant="outlined"
+                    type="text"
+                    placeholder="Enter Your measurement details"
+                    fullWidth
+                    onBlur={formik.handleChange}
+                    error={
+                      formik.touched.special_instruction &&
+                      Boolean(formik.errors.special_instruction)
+                    }
+                    helperText={
+                      formik.touched.special_instruction && formik.errors.special_instruction
+                    }
+                  />
+                </Grid>
+
                 <Grid
                   item
                   container
@@ -783,9 +852,7 @@ export const Product = ({ id }: { id: string }) => {
                   justifyContent="center"
                   sx={{ my: 1 }}
                 >
-                  <Grid>
-
-                  </Grid>
+                  <Grid></Grid>
                   <Grid item>
                     <YellowButton
                       type="submit"
@@ -828,27 +895,32 @@ export const Product = ({ id }: { id: string }) => {
             </form>
             <Typography pt={1} variant="body2">
               <span>
-                <span style={{ color: "red" }}>Delivery Time:</span> 7-9 days between 11 AM till 8 PM
+                <span style={{ color: "red" }}>Delivery Time:</span> 7-9 days between 11 AM till 8
+                PM
               </span>
               <br />
               <span>
-                <span style={{ color: "red" }}>Delivery Charge:</span> FREE above 150 {appConfig.product.currency}. 10 {appConfig.product.currency} below 150.
+                <span style={{ color: "red" }}>Delivery Charge:</span> FREE above 150{" "}
+                {appConfig.product.currency}. 10 {appConfig.product.currency} below 150.
               </span>
               <br />
               <span>
-                <span style={{ color: "red" }}>Return & Replacement:</span> In 24 Hours. No questions asked
+                <span style={{ color: "red" }}>Return & Replacement:</span> In 24 Hours. No
+                questions asked
               </span>
             </Typography>
           </Grid>
         </Grid>
         <Box>
-          {currentProdId &&  <DescriptionTabs
-            productId={currentProdId}
-            finePrint={productData?.fine_print}
-            productDescription={productData?.product_description}
-          />}
-         
-         {currentProdId && <ProductFeedback productId={currentProdId} />} 
+          {currentProdId && (
+            <DescriptionTabs
+              productId={currentProdId}
+              finePrint={productData?.fine_print}
+              productDescription={productData?.product_description}
+            />
+          )}
+
+          {currentProdId && <ProductFeedback productId={currentProdId} />}
           {productCategory && (
             <RelatedProducts
               categoryId={productCategory.value}
@@ -857,12 +929,12 @@ export const Product = ({ id }: { id: string }) => {
           )}
         </Box>
         {productCategory && (
-            <NotificationDrawer 
-              open={notificationDrawerEl}
-              categoryId={productCategory.value}
-              categoryName={productCategory.text} 
-              toggleDrawer={toggleNotificaitonDrawer} 
-            />
+          <NotificationDrawer
+            open={notificationDrawerEl}
+            categoryId={productCategory.value}
+            categoryName={productCategory.text}
+            toggleDrawer={toggleNotificaitonDrawer}
+          />
         )}
         <ProductOutOfStockModal open={outOfStockModalOpen} onClose={handleOutOfStockModalClose} />
         <NegativeInventoryModal

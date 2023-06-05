@@ -26,6 +26,7 @@ interface AddToCartProps {
   selectedSubSku: SubSku | null;
   qty: any;
   inventoryData: ProductInventoryType;
+  special_instruction:string;
 }
 
 const getSessionId = () => {
@@ -47,6 +48,7 @@ export const addNewCart = async ({
   design,
   qty,
   inventoryData,
+  special_instruction
 }: AddToCartProps) => {
   const locationData = getLocationData(productData!.location_data);
   const body: AddProdToCartDTO = {
@@ -78,6 +80,7 @@ export const addNewCart = async ({
       available_quantity: inventoryData.product_quantity,
       cart_quantity: qty,
       session_id: getSessionId(),
+      special_instruction
     },
   };
   return axios.post<any, AxiosResponse<AddProdToCartResponse, any>, AddProdToCartDTO>(
