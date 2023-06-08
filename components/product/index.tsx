@@ -820,10 +820,9 @@ export const Product = ({ id }: { id: string }) => {
                   </>
                 )}
 
-                <Typography pt={2} px={1} variant="body2">
+                <Typography pt={1} px={1} style={{width:'100%',textAlign:'left'}} variant="body2">
                   <span>
-                    <span style={{ color: "red" }}>Your measurement details below Eg:</span> Your
-                    Shoulder Size, Height, Sleeve length, Bust Size, Hib
+                    <span style={{ color: "red" }}>Special Instructions below</span>
                   </span>
                 </Typography>
                 <Grid item xs={12} sm={8} md={12}>
@@ -832,7 +831,7 @@ export const Product = ({ id }: { id: string }) => {
                     variant="outlined"
                     multiline={true}
                     type="text"
-                    placeholder="Enter Your measurement details"
+                    placeholder="Special Instructions Here"
                     fullWidth
                     onBlur={formik.handleChange}
                     error={
@@ -854,7 +853,7 @@ export const Product = ({ id }: { id: string }) => {
                   sx={{ my: 1 }}
                 >
                   <Grid></Grid>
-                  <Grid item>
+                  <Grid item style={{paddingTop:0}}>
                     <YellowButton
                       type="submit"
                       startIcon={
@@ -872,7 +871,7 @@ export const Product = ({ id }: { id: string }) => {
                       Quick Checkout
                     </YellowButton>
                   </Grid>
-                  <Grid item>
+                  <Grid item style={{paddingTop:0}}>
                     <BlackButton
                       type="submit"
                       startIcon={
