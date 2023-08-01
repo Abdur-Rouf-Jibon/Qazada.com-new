@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@emotion/react";
 import { Box, LinearProgress, LinearProgressProps, Rating, Stack, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import { InfiniteData, useQueryClient } from "@tanstack/react-query";
-import { ReviewsResponse } from "components/allTypes/reviewType";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { fetchProductReviews } from "backend/reviews";
 import { appStyles } from "components/common/appColors";
 import { BlackButton } from "components/common/styled/buttons";
 import appConfig from "config";
@@ -12,11 +12,11 @@ import { AddReviewModal } from "../modals";
 import * as styles from "../style";
 
 export const ProductReviews = ({ productId }: { productId: string }) => {
-  const queryClient = useQueryClient();
-  const reviews = queryClient.getQueryData<InfiniteData<ReviewsResponse> | undefined>([
-    appConfig.queryKeys.productReviews,
-    productId,
-  ]);
+  const { data:reviews } = useInfiniteQuery(
+    [appConfig.queryKeys.productReviews, productId],
+    async ({ pageParam = 1 }) => fetchProductReviews(pageParam, productId)
+  );
+  
   const [reviewModalOpen, setAddReviewModalOpen] = useState(false);
   const reviewSummary = reviews?.pages[0]?.rating_summery[0];
 

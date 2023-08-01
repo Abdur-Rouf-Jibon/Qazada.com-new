@@ -28,7 +28,7 @@ import appConfig from "config";
 import { useFormik } from "formik";
 import { concat, find, map } from "lodash";
 import React, { useEffect, useState } from "react";
-import { useIsFetching, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useIsFetching, useMutation, useQuery, useQueryClient,InfiniteData } from "@tanstack/react-query";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import * as yup from "yup";
 import {
@@ -64,7 +64,7 @@ import { BlackButton, YellowButton } from "components/common/styled/buttons";
 import { RelatedProducts } from "./relatedProducts";
 import { NotificationDrawer } from "./notificationDrawer";
 import { ProductFeedback } from "./feedback";
-
+import { ReviewsResponse } from "components/allTypes/reviewType";
 interface ProductFormValues {
   colorValue: string;
   sizeValue: string;
@@ -104,6 +104,7 @@ export const Product = ({ id }: { id: string }) => {
   const cartProducts = queryClient.getQueryData<AllCartProds>(["cartProducts"]);
   const isCartFetching = useIsFetching(["cartProducts"]) > 0;
   const mdMatches = useMediaQuery(theme.breakpoints.up("md"));
+
 
   const toggleNotificaitonDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
