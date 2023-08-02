@@ -507,3 +507,147 @@ export const AddReviewModal = ({
     </Modal>
   );
 };
+
+export const AddCustomizeSizeModal = ({
+  open,
+  handleClose,
+}: {
+  open: boolean;
+  handleClose: () => void;
+}) => {
+
+  const style: muiSxPropType = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    maxWidth: 700,
+    width: "100%",
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    p: 4,
+    "& .MuiFilledInput-root": {
+      ":before": {
+        borderBottom: "none",
+      },
+      borderRadius: appStyles.textFieldShape,
+    },
+  };
+
+  const measurementList = [
+    {
+      id: "sleeve_from_neck",
+      name: "Sleeve From Neck",
+    },
+    {
+      id: "sleeve_from_shoulder",
+      name: "Sleeve From Shoulder",
+    },
+    {
+      id: "upper_round_sleeve",
+      name: "Upper Round Sleeve",
+    },
+    {
+      id: "bust_size",
+      name: "Bust Size",
+    },
+    {
+      id: "waist_size",
+      name: "Waist Size",
+    },
+    {
+      id: "hips_size",
+      name: "Hips Size",
+    },
+    {
+      id: "shoulder",
+      name: "Shoulder",
+    },
+    {
+      id: "body_length",
+      name: "Body Length",
+    },
+    {
+      id: "front_style",
+      name: "Front Style",
+    },
+  ];
+
+  const [measurementData, setMeasurementData] = useState(measurementList.reduce((acc, measurement) => ({ ...acc, [measurement.id]: "" }), {}));
+
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{ overflow: 'scroll' }}
+    >
+      <Paper sx={style}>
+        <Stack spacing={3}>
+          <Stack spacing={2} direction={"row"} justifyContent="space-between" alignItems={"center"}>
+            <Stack spacing={1} alignItems="center">
+              <img src={"/images/measurement.jpeg"} style={{ width: "100%" }} />
+            </Stack>
+            <Stack spacing={1} alignItems="center" flex={1} >
+              <Typography variant="h6" style={{ width: "300px" }}>Fill Your Measurement is CM:</Typography>
+
+              {measurementList.map((v) => (
+                <Stack
+                  spacing={1}
+                  direction={"row"}
+                  justifyContent="space-between"
+                  alignItems={"center"}
+                  key={v.id}
+                  style={{marginBottom: '5px',
+                  border: '1px solid #f2f2f2b3',
+                  padding: '2px',
+                  borderRadius: '5px'}}
+                >
+                  <Typography style={{ width: "180px" }}>{v.name}:</Typography>
+                  <TextField
+                    id={v.id}
+                    name={v.id}
+                    type="number"
+                    variant="filled"
+                    hiddenLabel
+                    style={{ width: "80px", }}
+                    sx={{
+                      '& input':{
+                        height:'5px'
+                      }
+                    }}
+                    onChange={e => setMeasurementData({...measurementData, [v.id]:e.target.value})}
+                  />
+                </Stack>
+              ))}
+              <TextField
+                id="message"
+                name="message"
+                variant="filled"
+                hiddenLabel
+                placeholder="Special Instructions"
+                multiline
+                rows={2}
+                style={{width:'100%'}}
+                onChange={e => setMeasurementData({...measurementData, message:e.target.value})}
+              />
+               <Stack direction={"row"} spacing={2} style={{marginTop:'30px'}}>
+                <BlackButton variant="contained" disableElevation onClick={handleClose}>
+                  Cancel
+                </BlackButton>
+                <YellowButton
+                  variant="contained"
+                  disableElevation
+                  onClick={() => console.log(measurementData)}
+                >
+                  Submit
+                </YellowButton>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Paper>
+    </Modal>
+  );
+};

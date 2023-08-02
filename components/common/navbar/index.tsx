@@ -39,7 +39,7 @@ export default function Navbar() {
   const categories = queryClient.getQueryData<CategoryType[]>([appConfig.queryKeys.categories]);
   const router = useRouter();
   const { catId } = router.query;
-  console.log("categories: ", categories);
+ // console.log("categories: ", categories);
   const toggleCartDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event &&

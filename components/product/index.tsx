@@ -54,7 +54,7 @@ import {
   postNewOrder,
 } from "../hooks/useOrder";
 import DescriptionTabs from "./description";
-import { ConfirmOrderModal, NegativeInventoryModal, ProductOutOfStockModal } from "./modals";
+import { ConfirmOrderModal, NegativeInventoryModal, ProductOutOfStockModal, AddCustomizeSizeModal } from "./modals";
 import { Slider } from "./slider";
 import * as styles from "./style";
 import { useRouter } from "next/router";
@@ -97,6 +97,7 @@ export const Product = ({ id }: { id: string }) => {
   const [selectedSubSku, setSelectedSubSku] = useRecoilState(selectedSubSKUAtom);
   const [customerContInfo, setCustomerContInfo] = useRecoilState(customerContactInfo);
   const [openOrderModal, setOpenOrderModal] = useState(false);
+  const [openMeasurementModal, setopenMeasurementModal] = useState(false);
   const [userInfoExist, setUserInfoExist] = useState<boolean>(Boolean(customerContInfo));
   const [outOfStockModalOpen, setOutOfStockModalOpen] = useState<boolean>(false);
   const [negativeInventoryModalOpen, setNegativeInventoryModalOpen] = useState<boolean>(false);
@@ -266,6 +267,7 @@ export const Product = ({ id }: { id: string }) => {
 
   useEffect(() => {
     const formikValues = formik.values;
+    
     if (productData && productData.product_attributes.length) {
       let subSkuName = productData.product_sku;
       for (const attr of productData.product_attributes) {
@@ -675,7 +677,12 @@ export const Product = ({ id }: { id: string }) => {
                         name="sizeValue"
                         displayEmpty
                         value={formik.values.sizeValue}
-                        onChange={formik.handleChange}
+                        onChange={e => {
+                          if(e.target.value === "customized_size"){
+                           // setopenMeasurementModal(true)
+                          }
+                          formik.handleChange(e)
+                        }}
                         MenuProps={{
                           PaperProps: {
                             sx: styles.sizeSelectOption,
@@ -719,6 +726,10 @@ export const Product = ({ id }: { id: string }) => {
                             </MenuItem>
                           );
                         })}
+
+{/* <MenuItem value="customized_size" onClick={() =>  setopenMeasurementModal(true)}>
+                          <span >Customized Size</span>
+                        </MenuItem> */}
                       </Select>
                       {formik.touched.sizeValue && (
                         <FormHelperText>{formik.errors.sizeValue}</FormHelperText>
@@ -771,7 +782,7 @@ export const Product = ({ id }: { id: string }) => {
                         className="phone-text-field"
                         placeholder="Eg. 55xxxxxxx or 50xxxxxxx"
                         variant="outlined"
-                        type="number"
+                        type="tel"
                         fullWidth
                         InputProps={{
                           startAdornment: <InputAdornment position="start">+971</InputAdornment>,
@@ -949,6 +960,7 @@ export const Product = ({ id }: { id: string }) => {
           handleConfirmOrder={handleConfirmOrder}
           newOrderMutation={newOrderMutation}
         />
+        <AddCustomizeSizeModal open={openMeasurementModal} handleClose={() => setopenMeasurementModal(false)} />
       </Container>
     </>
   );
