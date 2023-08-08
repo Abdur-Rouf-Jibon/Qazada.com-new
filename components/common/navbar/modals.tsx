@@ -11,6 +11,7 @@ interface EditCustomerInfoValues {
   name: string;
   phone: string;
   address: string;
+  email: string;
 }
 
 export const EditCustomerInfo = ({
@@ -25,12 +26,13 @@ export const EditCustomerInfo = ({
   const formikInitialValues: EditCustomerInfoValues = {
     name: customerContInfo!.name,
     phone: customerContInfo!.phone,
+    email: customerContInfo!.email,
     address: customerContInfo!.address,
   };
 
   const schema = yup.object().shape({
     name: yup.string().min(2, "Enter a valid Name").required("Name is required"),
-    phone: yup.string().length(8, "Enter a valid Number").required("Number is required"),
+    phone: yup.string().length(9, "Enter a valid Number").required("Number is required"),
     address: yup.string().min(1).required("Address is required"),
   });
 
@@ -38,11 +40,11 @@ export const EditCustomerInfo = ({
     initialValues: formikInitialValues,
     validationSchema: schema,
     onSubmit: async (values, { setSubmitting, submitForm }) => {
-      const { name, phone,  address } = values;
-      const email = '';
+      const { name, phone, email,  address } = values;
+      // const email = '';
       if (customerContInfo) {
-        saveCustomerInfoToStorage(name, email, phone, customerContInfo.city, address);
-        setCustomerContInfo({ name, email, phone, city: customerContInfo.city, address });
+        saveCustomerInfoToStorage(name,  phone, email, customerContInfo.city, address);
+        setCustomerContInfo({ name,  phone, email, city: customerContInfo.city, address });
       }
       handleClose();
     },
@@ -62,6 +64,19 @@ export const EditCustomerInfo = ({
             onChange={formik.handleChange}
             error={formik.touched.name && Boolean(formik.errors.name)}
             helperText={formik.touched.name && formik.errors.name}
+            margin="dense"
+          />
+          <Typography fontWeight={appStyles.w600}>Customer Email:</Typography>
+          <TextField
+            name="email"
+            type="text"
+            variant="outlined"
+            placeholder="Enter Email"
+            fullWidth
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
             margin="dense"
           />
           <Typography fontWeight={appStyles.w600} sx={{ mt: 1 }}>

@@ -28,7 +28,13 @@ import appConfig from "config";
 import { useFormik } from "formik";
 import { concat, find, map } from "lodash";
 import React, { useEffect, useState } from "react";
-import { useIsFetching, useMutation, useQuery, useQueryClient,InfiniteData } from "@tanstack/react-query";
+import {
+  useIsFetching,
+  useMutation,
+  useQuery,
+  useQueryClient,
+  InfiniteData,
+} from "@tanstack/react-query";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import * as yup from "yup";
 import {
@@ -54,7 +60,12 @@ import {
   postNewOrder,
 } from "../hooks/useOrder";
 import DescriptionTabs from "./description";
-import { ConfirmOrderModal, NegativeInventoryModal, ProductOutOfStockModal, AddCustomizeSizeModal } from "./modals";
+import {
+  ConfirmOrderModal,
+  NegativeInventoryModal,
+  ProductOutOfStockModal,
+  AddCustomizeSizeModal,
+} from "./modals";
 import { Slider } from "./slider";
 import * as styles from "./style";
 import { useRouter } from "next/router";
@@ -105,7 +116,6 @@ export const Product = ({ id }: { id: string }) => {
   const cartProducts = queryClient.getQueryData<AllCartProds>(["cartProducts"]);
   const isCartFetching = useIsFetching(["cartProducts"]) > 0;
   const mdMatches = useMediaQuery(theme.breakpoints.up("md"));
-
 
   const toggleNotificaitonDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -267,7 +277,7 @@ export const Product = ({ id }: { id: string }) => {
 
   useEffect(() => {
     const formikValues = formik.values;
-    
+
     if (productData && productData.product_attributes.length) {
       let subSkuName = productData.product_sku;
       for (const attr of productData.product_attributes) {
@@ -677,11 +687,11 @@ export const Product = ({ id }: { id: string }) => {
                         name="sizeValue"
                         displayEmpty
                         value={formik.values.sizeValue}
-                        onChange={e => {
-                          if(e.target.value === "customized_size"){
-                           // setopenMeasurementModal(true)
+                        onChange={(e) => {
+                          if (e.target.value === "customized_size") {
+                            // setopenMeasurementModal(true)
                           }
-                          formik.handleChange(e)
+                          formik.handleChange(e);
                         }}
                         MenuProps={{
                           PaperProps: {
@@ -727,8 +737,11 @@ export const Product = ({ id }: { id: string }) => {
                           );
                         })}
 
-{/* <MenuItem value="customized_size" onClick={() =>  setopenMeasurementModal(true)}>
-                          <span >Customized Size</span>
+                        {/* <MenuItem
+                          value="customized_size"
+                          onClick={() => setopenMeasurementModal(true)}
+                        >
+                          <span>Customized Size</span>
                         </MenuItem> */}
                       </Select>
                       {formik.touched.sizeValue && (
@@ -832,7 +845,12 @@ export const Product = ({ id }: { id: string }) => {
                   </>
                 )}
 
-                <Typography pt={1} px={1} style={{width:'100%',textAlign:'left'}} variant="body2">
+                <Typography
+                  pt={1}
+                  px={1}
+                  style={{ width: "100%", textAlign: "left" }}
+                  variant="body2"
+                >
                   <span>
                     <span style={{ color: "red" }}>Special Instructions below</span>
                   </span>
@@ -865,7 +883,7 @@ export const Product = ({ id }: { id: string }) => {
                   sx={{ my: 1 }}
                 >
                   <Grid></Grid>
-                  <Grid item style={{paddingTop:0}}>
+                  <Grid item style={{ paddingTop: 0 }}>
                     <YellowButton
                       type="submit"
                       startIcon={
@@ -883,7 +901,7 @@ export const Product = ({ id }: { id: string }) => {
                       Quick Checkout
                     </YellowButton>
                   </Grid>
-                  <Grid item style={{paddingTop:0}}>
+                  <Grid item style={{ paddingTop: 0 }}>
                     <BlackButton
                       type="submit"
                       startIcon={
@@ -960,7 +978,10 @@ export const Product = ({ id }: { id: string }) => {
           handleConfirmOrder={handleConfirmOrder}
           newOrderMutation={newOrderMutation}
         />
-        <AddCustomizeSizeModal open={openMeasurementModal} handleClose={() => setopenMeasurementModal(false)} />
+        <AddCustomizeSizeModal
+          open={openMeasurementModal}
+          handleClose={() => setopenMeasurementModal(false)}
+        />
       </Container>
     </>
   );
