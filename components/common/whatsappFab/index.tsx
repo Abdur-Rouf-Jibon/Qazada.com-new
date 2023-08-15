@@ -32,7 +32,7 @@ export const WhatsappFab = () => {
           <WhatsAppIcon  fontSize={isWidthSM ? 'small' : 'large'}  sx={{ color: "white", "&:hover": { color: "#25D366" } }} />
         </Fab>
         <Paper elevation={6} sx={{ fontSize: "body1.fontSize", px: 1, py: 0.5 }}>
-          Live Chat
+        Order on Whatsapp
         </Paper>
       </Stack>
     </Box>
