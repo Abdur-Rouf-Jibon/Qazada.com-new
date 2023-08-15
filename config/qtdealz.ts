@@ -12,7 +12,7 @@ const qtdealz: ConfigsType = {
   },
   contact: {
     whatsapp:
-      "https://api.whatsapp.com/send?phone=+971528785046&text=I%20have%20a%20question%20can%20you%20assist%20me%20",
+      "https://api.whatsapp.com/send?phone=+971528785046&text=I%20want%20to%20order.%20%D8%A7%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A7%D8%B7%D9%84%D8%A8",
     email: "Info@Qazada.com",
     address:
       "Dee Vinci International FZE LLC . Media City. United Arab Emirates",
@@ -23,7 +23,7 @@ const qtdealz: ConfigsType = {
     // prettier-ignore
     cities: ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Fujairah", "Ras Al khaimah", "Al Ain","Umm Al Quwain"],
     whatsappShare:
-      "https://api.whatsapp.com/send?phone=+971528785046&text=I%20have%20a%20question%20can%20you%20assist%20me%20",
+      "https://api.whatsapp.com/send?phone=+971528785046&text=I%20want%20to%20order.%20%D8%A7%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A7%D8%B7%D9%84%D8%A8",
     invoiceLink: "https://office21.dealizzle.com/api/store/customer/order/pdf?order_number=",
     vat: false,
     displayYoutubeThumbnail: false,

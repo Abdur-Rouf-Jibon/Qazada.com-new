@@ -33,6 +33,8 @@ export const WhatsappFab = () => {
         </Fab>
         <Paper elevation={6} sx={{ fontSize: "body1.fontSize", px: 1, py: 0.5 }}>
         Order on Whatsapp
+        
+        <p style={{fontSize:'12px',textAlign:'center',margin:0}}>اطلب عبر</p>
         </Paper>
       </Stack>
     </Box>
