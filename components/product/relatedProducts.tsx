@@ -10,7 +10,6 @@ import * as styles from "./style";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { useIntersectionObserver } from "components/common/hooks/useIntersectionObserver";
 
-
 interface Props {
   categoryId: string;
   categoryName: string;
@@ -37,7 +36,7 @@ export const RelatedProducts = ({ categoryId, categoryName }: Props) => {
         },
         skip: pageParam,
         limit: 32,
-        sort: { modified_date: -1,_id: -1 }
+        sort: { modified_date: -1 },
       })
     ).data.data as ProductsData[];
   };
@@ -57,8 +56,6 @@ export const RelatedProducts = ({ categoryId, categoryName }: Props) => {
     setCurrPage((prevState) => prevState + 32);
   };
 
-
-
   const flattenedProductsData = data?.pages.flat();
 
   useIntersectionObserver({
@@ -67,18 +64,13 @@ export const RelatedProducts = ({ categoryId, categoryName }: Props) => {
     enabled: hasNextPage,
   });
 
-
- 
   return (
     <Box sx={styles.relatedProducts}>
       <Typography variant="h2" className={allura.className} sx={styles.relatedProductsTitle}>
         How About These
       </Typography>
-      <ProductsByCat
-        productsData={flattenedProductsData}
-        loading={false}
-      />
-       <Box ref={targetElRef} sx={{ py: 5 }} />
+      <ProductsByCat productsData={flattenedProductsData} loading={false} />
+      <Box ref={targetElRef} sx={{ py: 5 }} />
     </Box>
   );
 };
