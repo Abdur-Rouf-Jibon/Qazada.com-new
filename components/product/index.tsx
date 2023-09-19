@@ -689,7 +689,7 @@ export const Product = ({ id }: { id: string }) => {
                         value={formik.values.sizeValue}
                         onChange={(e) => {
                           if (e.target.value === "customized_size") {
-                            // setopenMeasurementModal(true)
+                            setopenMeasurementModal(true);
                           }
                           formik.handleChange(e);
                         }}
@@ -737,12 +737,12 @@ export const Product = ({ id }: { id: string }) => {
                           );
                         })}
 
-                        {/* <MenuItem
+                        <MenuItem
                           value="customized_size"
                           onClick={() => setopenMeasurementModal(true)}
                         >
                           <span>Customized Size</span>
-                        </MenuItem> */}
+                        </MenuItem>
                       </Select>
                       {formik.touched.sizeValue && (
                         <FormHelperText>{formik.errors.sizeValue}</FormHelperText>
