@@ -52,7 +52,7 @@ export default function Home() {
               viewBox="0 0 2200 549"
               className="banner-img"
             >
-              <image width="2200" height="549" xlinkHref={`/images/Clearance-Sale-Web-Banner-04`}></image>
+              <image width="2200" height="549" xlinkHref={`/images/Clearance-Sale-Web-Banner-04.jpg`}></image>
               <a
                 href={appConfig.siteInfo.certificateURL}
                 target="_blank"
