@@ -942,7 +942,9 @@ export const Product = ({ id }: { id: string }) => {
           </Grid>
         </Grid>
         <Box>
-          {currentProdId && (
+        {/* This is the review, description and feedback section. */}
+        
+          {/* {currentProdId && (
             <DescriptionTabs
               productId={currentProdId}
               finePrint={productData?.fine_print}
@@ -950,7 +952,7 @@ export const Product = ({ id }: { id: string }) => {
             />
           )}
 
-          {currentProdId && <ProductFeedback productId={currentProdId} />}
+          {currentProdId && <ProductFeedback productId={currentProdId} />} */}
           {productCategory && (
             <RelatedProducts
               categoryId={productCategory.value}
