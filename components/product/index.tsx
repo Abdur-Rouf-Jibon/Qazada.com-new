@@ -504,11 +504,14 @@ export const Product = ({ id }: { id: string }) => {
               {locationData && locationData.discounted_price > 0 && (
                 <>
                   <Typography sx={styles.discountPrice}>
-                    Was&nbsp;
-                    <span className="cross">
+                    <del>
+                      Was&nbsp;
                       {appConfig.product.currency}&nbsp;
                       {locationData.selling_price}
-                    </span>
+                    </del>
+                    {/* <span className="cross">
+                      
+                    </span> */}
                   </Typography>
                   <Typography sx={{ ...styles.priceDetails, color: "red" }}>
                     {getProdDiscountPercentage(
@@ -706,8 +709,8 @@ export const Product = ({ id }: { id: string }) => {
                           const possibleSubSku = selectedColor
                             ? `${productData.product_sku}-${selectedColor.text}-${text}`
                             : selectedDesign
-                            ? `${productData.product_sku}-${selectedDesign.text}-${text}`
-                            : `${productData.product_sku}-${text}`;
+                              ? `${productData.product_sku}-${selectedDesign.text}-${text}`
+                              : `${productData.product_sku}-${text}`;
                           const sizeSubSkuData =
                             productInventoryBulkMutation.data &&
                             productInventoryBulkMutation.data.find(
@@ -942,8 +945,8 @@ export const Product = ({ id }: { id: string }) => {
           </Grid>
         </Grid>
         <Box>
-        {/* This is the review, description and feedback section. */}
-        
+          {/* This is the review, description and feedback section. */}
+
           {currentProdId && (
             <DescriptionTabs
               productId={currentProdId}

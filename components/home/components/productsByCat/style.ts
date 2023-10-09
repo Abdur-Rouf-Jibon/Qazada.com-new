@@ -104,15 +104,15 @@ export const prodDiscountPrice: muiSxPropType = {
     fontSize: "11px",
   },
 
-  ':after':{
-    content: "'X'",
-    position: "absolute",
-    left: "40%",
-    top: "-8px",
-    color: "red",
-    fontWeight: "lighter",
-    fontSize: "22px",
-  }
+  // ':after':{
+  //   content: "'X'",
+  //   position: "absolute",
+  //   left: "40%",
+  //   top: "-8px",
+  //   color: "red",
+  //   fontWeight: "lighter",
+  //   fontSize: "22px",
+  // }
 };
 
 

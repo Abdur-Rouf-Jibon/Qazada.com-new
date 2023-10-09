@@ -53,7 +53,7 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
       {title && (
         <Typography
           variant="h2"
-          fontSize={{ sm: "3.75rem",xs: "2.2rem",  }}
+          fontSize={{ sm: "3.75rem", xs: "2.2rem", }}
           textAlign="center"
           className={allura.className}
           color={grey[800]}
@@ -189,8 +189,10 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                           {locationData.discounted_price > 0 && (
                             <>
                               <Box component="span" sx={styles.prodDiscountPrice}>
-                                {appConfig.product.currency}&nbsp;
-                                {locationData.selling_price}
+                                <del>
+                                  {appConfig.product.currency}&nbsp;
+                                  {locationData.selling_price}
+                                </del>
                               </Box>
                             </>
                           )}
@@ -204,7 +206,7 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                           <Typography variant="body2" sx={styles.prodTitle} noWrap={false}>
                             {item.product_name}
                           </Typography>
-                          <Box component="span" style={{backgroundColor: "#ffeb3b",color:'#222222'}} sx={styles.saleText}>
+                          <Box component="span" style={{ backgroundColor: "#ffeb3b", color: '#222222' }} sx={styles.saleText}>
                             View
                           </Box>
                         </Stack>
