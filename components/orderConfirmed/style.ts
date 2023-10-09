@@ -18,7 +18,7 @@ export const orderDetails: muiSxPropType = {
 export const whatsappLink: muiSxPropType = {
   color: appColors.darkGrey,
   fontWeight: "700",
-  fontSize: "1.1em",
+  fontSize: "0.7em",
 };
 export const invoiceLink: muiSxPropType = {
   fontWeight: appStyles.w500,

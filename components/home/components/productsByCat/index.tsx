@@ -173,6 +173,17 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                         </Box>
                       </Box>
                       <Box sx={{ mx: { sm: 2, xs: 1 }, pb: 2 }}>
+                        <Stack direction={"row"} justifyContent="space-between" alignItems="center">
+                          <Typography variant="body2" sx={styles.prodTitle} noWrap={false}>
+                            {item.product_name}
+                          </Typography>
+                          {(item.special_offer_text || locationData.discounted_price > 0) && (
+                            <Box component="span" sx={styles.saleText}>
+                              {item.special_offer_text ? "Bundle Offer" : "SALE"}
+                            </Box>
+                          )}
+
+                        </Stack>
                         <Typography
                           variant="body2"
                           sx={{
@@ -196,20 +207,11 @@ export default function ProductsByCat({ title, productsData, loading }: Props) {
                               </Box>
                             </>
                           )}
-                          {(item.special_offer_text || locationData.discounted_price > 0) && (
-                            <Box component="span" sx={styles.saleText}>
-                              {item.special_offer_text ? "Bundle Offer" : "SALE"}
-                            </Box>
-                          )}
-                        </Typography>
-                        <Stack direction={"row"} justifyContent="space-between" alignItems="center">
-                          <Typography variant="body2" sx={styles.prodTitle} noWrap={false}>
-                            {item.product_name}
-                          </Typography>
                           <Box component="span" style={{ backgroundColor: "#ffeb3b", color: '#222222' }} sx={styles.saleText}>
                             View
                           </Box>
-                        </Stack>
+                        </Typography>
+
                       </Box>
                     </Paper>
                   </Link>

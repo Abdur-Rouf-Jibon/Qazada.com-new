@@ -97,12 +97,12 @@ export const prodDiscountPrice: muiSxPropType = {
   position:'relative',
   color: grey[500],
   ml: 1,
-  fontSize: {
-    xs: "13px",
-  },
-  "@media (max-width: 405px)": {
-    fontSize: "11px",
-  },
+  // fontSize: {
+  //   xs: "13px",
+  // },
+  // "@media (max-width: 405px)": {
+  //   fontSize: "11px",
+  // },
 
   // ':after':{
   //   content: "'X'",
