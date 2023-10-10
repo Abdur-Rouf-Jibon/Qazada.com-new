@@ -79,7 +79,7 @@ export const prodPriceText: muiSxPropType = {
   display: "flex",
   alignItems: "center",
   my: 0.5,
-  fontWeight: "700",
+  fontWeight: "500",
   fontSize: {
     xs: "16px",
   },
