@@ -15,7 +15,7 @@ export const WhatsappFab = () => {
           xs: 0,
           sm: 30,
         },
-        right: {
+        left: {
           xs:10,
           sm:30
         },
