@@ -50,7 +50,7 @@ export const ContactUs = () => {
         <br />
         please contact us at{" "}
         <a href={`mailto:${appConfig.contact.email}`}>{appConfig.contact.email}</a> Or call us
-        between <strong>9 Am till 6 Pm Saturday to Thursday</strong> on +974 5030 3100
+        between <strong>9 Am till 6 Pm Saturday to Thursday</strong> on +971 52 878 5046 
       </Typography>
     </Container>
   );
