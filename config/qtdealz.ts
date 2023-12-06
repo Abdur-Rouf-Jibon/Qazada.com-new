@@ -16,7 +16,7 @@ const qtdealz: ConfigsType = {
     email: "Info@Qazada.com",
     address:
       "Dee Vinci International FZE LLC . Media City. United Arab Emirates",
-    phone: "+974 5030 3100",
+    phone: "+971564259474",
   },
   product: {
     currency: "AED",
