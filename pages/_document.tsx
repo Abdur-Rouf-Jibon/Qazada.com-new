@@ -10,6 +10,15 @@ export default class MyDocument extends Document {
       <Html lang="en" className={`${poppins.className}`}>
         <Head>
           <meta charSet="UTF-8" />
+          <script src="./googleManager.tsx" />
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-K8LGRC7K"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            ></iframe>
+          </noscript>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="shortcut icon" href={`/${appConfig.api.favIconFileName}`} />

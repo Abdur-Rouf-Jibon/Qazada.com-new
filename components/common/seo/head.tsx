@@ -9,6 +9,9 @@ export const HeadTags = ({ contents }: Props) => {
   const { title, description, imgURL, keywords, url } = contents;
   return (
     <Head>
+
+
+
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="title" content={title} />
