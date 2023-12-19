@@ -11,15 +11,17 @@ export default class MyDocument extends Document {
       <Html lang="en" className={`${poppins.className}`}>
         <Head>
           <meta charSet="UTF-8" />
-          <Script src="../utils/googleManager.js"/>
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-K8LGRC7K"
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            ></iframe>
-          </noscript>
+          <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-K8LGRC7K');
+            `,
+          }}
+        />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="shortcut icon" href={`/${appConfig.api.favIconFileName}`} />
@@ -29,6 +31,14 @@ export default class MyDocument extends Document {
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `
+              <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8LGRC7K"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            `,
+          }}
+        />
           <Main />
           <NextScript />
         </body>
