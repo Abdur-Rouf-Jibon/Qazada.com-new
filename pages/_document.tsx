@@ -3,6 +3,7 @@ import appConfig from "config";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import createEmotionCache from "../utils/createEmotionCache";
 import theme, { poppins } from "../utils/theme";
+import Script from "next/script";
 
 export default class MyDocument extends Document {
   render() {
@@ -10,7 +11,7 @@ export default class MyDocument extends Document {
       <Html lang="en" className={`${poppins.className}`}>
         <Head>
           <meta charSet="UTF-8" />
-          <script src="./googleManager.tsx" />
+          <Script src="../utils/googleManager.js">
           <noscript>
             <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-K8LGRC7K"
