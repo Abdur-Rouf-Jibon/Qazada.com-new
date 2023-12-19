@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
       <Html lang="en" className={`${poppins.className}`}>
         <Head>
           <meta charSet="UTF-8" />
-          <Script src="../utils/googleManager.js">
+          <Script src="../utils/googleManager.js"/>
           <noscript>
             <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-K8LGRC7K"
