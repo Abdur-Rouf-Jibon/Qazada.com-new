@@ -115,7 +115,7 @@ export default function OrderConfirmed({ id }: { id: string }) {
                 <li>You will pay the amount as COD (Cash on delivery)</li>
                 <li>
                   For any question or queries please contact us at{" "}
-                  <strong>+971525291077</strong>.
+                  <strong>+0503220422</strong>.
                 </li>
                 <li>
                 Share these amazing products with your family and friend in UAE by WhatsApp.{" "}
