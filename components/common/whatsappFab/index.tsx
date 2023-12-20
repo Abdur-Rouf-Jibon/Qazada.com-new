@@ -27,7 +27,8 @@ export const WhatsappFab = () => {
         size={isWidthSM ? 'small' : 'large'}
           sx={{ bgcolor: "#25D366",size:'small' }}
           onClick={() => {
-            window.open(appConfig.contact.whatsapp);
+            window.open("https://wa.me/9710503220422 ");
+            // window.open(appConfig.contact.whatsapp); //old link
           }}
         >
           <WhatsAppIcon  fontSize={isWidthSM ? 'small' : 'large'}  sx={{ color: "white", "&:hover": { color: "#25D366" } }} />
