@@ -267,7 +267,7 @@ export const Product = ({ id }: { id: string }) => {
     initialValues: formikInitialValues,
     validationSchema: schema,
     onSubmit: async (values, { setSubmitting, submitForm }) => {
-      if (productData && productData.allowNegativeInventory) {
+      if (productData && productData.allowNegativeInventory && !productData['category'].some(item => item.text == "Abaya")) {
         setNegativeInventoryModalOpen(true);
       } else {
         await addToCart(values);
