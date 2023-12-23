@@ -58,7 +58,7 @@ export default function CartDrawer({ open, toggleDrawer }: Props) {
   const newOrderMutation = useMutation(postNewOrder, {
     onSuccess: (data: AxiosResponse<NewOrderResponse, any>) => {
       const res = data.data;
-      router.push(`/order-confirmed/${res.order_number}`);
+      router.push(`/order-confirmed/${res.order_number}/v=48`);
     },
   });
 

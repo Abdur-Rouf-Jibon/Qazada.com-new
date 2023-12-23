@@ -146,7 +146,7 @@ export const Product = ({ id }: { id: string }) => {
 
   const newOrderMutation = useMutation(postNewOrder, {
     onSuccess: (data: AxiosResponse<NewOrderResponse, any>) => {
-      router.push(`/order-confirmed/${data.data.order_number}/${data.data.delivery_date}`);
+      router.push(`/order-confirmed/${data.data.order_number}/${data.data.delivery_date}/v=48`);
     },
   });
 
