@@ -89,6 +89,18 @@ export default function Navbar() {
     };
   }, []);
 
+  const categoriesToShow = [
+    "Accessories",
+    "Clearance Sale",
+    "New Arrival",
+    "Women Fashion",
+    "Kids",
+  ];
+
+  const menuCategories = categories?.filter((category) =>
+    categoriesToShow.includes(category.category_name)
+  );
+
   return (
     <Box sx={styles.navbarStyles} className={displayTopBanner ? "navbar-with-topbanner" : "navbar"}>
       <AppBar position="fixed" color="inherit" elevation={0} sx={styles.appbarStyles}>
@@ -211,8 +223,8 @@ export default function Navbar() {
                   HOME
                 </Link>
               </Grid2>
-              {categories &&
-                categories.map((category) => (
+              {menuCategories &&
+                menuCategories.map((category) => (
                   <Grid2
                     component="li"
                     key={category._id}
@@ -226,28 +238,27 @@ export default function Navbar() {
                       className="nav-item"
                     >
                       {category.category_name.toUpperCase()}
-                      {category.items.length ?  <ExpandMore />  : null}
-                     
+                      {category.items.length ? <ExpandMore /> : null}
                     </Link>
 
                     {category.items.length ? (
                       <ul className="sub-menu-container">
-                        {category.items.map((v:any) => (
+                        {category.items.map((v: any) => (
                           <Grid2
-                          component="li"
-                          key={v._id}
-                          className={`nav-cat-container ${
-                            catId === v._id ? "nav-item-active" : ""
-                          }`}
-                          style={{ position: "relative" }}
-                        >
-                          <Link
-                            href={`/category/${v._id}/${v.category_name}`}
-                            className="nav-item"
+                            component="li"
+                            key={v._id}
+                            className={`nav-cat-container ${
+                              catId === v._id ? "nav-item-active" : ""
+                            }`}
+                            style={{ position: "relative" }}
                           >
-                            {v.category_name.toUpperCase()}
-                          </Link>
-                        </Grid2>
+                            <Link
+                              href={`/category/${v._id}/${v.category_name}`}
+                              className="nav-item"
+                            >
+                              {v.category_name.toUpperCase()}
+                            </Link>
+                          </Grid2>
                         ))}
                       </ul>
                     ) : null}

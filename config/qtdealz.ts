@@ -6,7 +6,7 @@ const qtdealz: ConfigsType = {
     baseUrl: "https://office21.dealizzle.com",
     imgUrl: "https://office21-prod.s3.me-south-1.amazonaws.com/uploads/productImages",
     reviewImgUrl: "https://office21-prod.s3.me-south-1.amazonaws.com/uploads/reviewImages",
-    locationId: "615aa1a81818ec3f60583303",
+    locationId: "61c96402232054d95cab9123",
     location_name: "www.qtdealz.com",
     favIconFileName: "qtdealz-icon.png",
   },

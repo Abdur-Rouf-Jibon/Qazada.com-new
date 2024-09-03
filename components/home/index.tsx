@@ -40,6 +40,9 @@ export default function Home() {
     return data as Products;
   });
 
+  console.log("useNewArrivalProducts", useNewArrivalProducts);
+  // console.log("useClearanceSaleProducts", useClearanceSaleProducts);
+
   return (
     <div className="home-comp">
       <Box sx={styles.homeCompWrapper}>
