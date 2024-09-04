@@ -72,6 +72,17 @@ export default function NavLeftSideMenuDrawer({ open, toggleDrawer }: Props) {
       categories.forEach(v => setopensubmenu((pre:any) => [...pre,false]))
     }
   },[categories])
+
+  const categoriesToShow = [
+    "66d84f79c866401d30828ff5",
+    "634fe7d050df3e14cfb7f9ea",
+    "636d55f08c8148551b94a333",
+    "66d84fc8c866401d30829001",
+    "636d560c8c8148551b94a337",
+  ];
+
+  const menuCategories = categories?.filter((category) => categoriesToShow.includes(category._id));
+  
   return (
     <SwipeableDrawer
       anchor="left"
@@ -104,8 +115,8 @@ export default function NavLeftSideMenuDrawer({ open, toggleDrawer }: Props) {
                   <ListItemText primary="Home" />
                 </ListItemButton>
               </ListItem>
-              {categories &&
-                categories.map((category, i) => (
+              {menuCategories &&
+                menuCategories.map((category, i) => (
                   <>
                     <ListItem
                       key={category._id}
