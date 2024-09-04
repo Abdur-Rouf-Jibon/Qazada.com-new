@@ -39,7 +39,7 @@ export default function Navbar() {
   const categories = queryClient.getQueryData<CategoryType[]>([appConfig.queryKeys.categories]);
   const router = useRouter();
   const { catId } = router.query;
- // console.log("categories: ", categories);
+  // console.log("categories: ", categories);
   const toggleCartDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event &&
@@ -90,16 +90,14 @@ export default function Navbar() {
   }, []);
 
   const categoriesToShow = [
-    "Accessories",
-    "Clearance Sale",
-    "New Arrival",
-    "Women Fashion",
-    "Kids",
+    "66d84f79c866401d30828ff5",
+    "634fe7d050df3e14cfb7f9ea",
+    "636d55f08c8148551b94a333",
+    "66d84fc8c866401d30829001",
+    "636d560c8c8148551b94a337",
   ];
 
-  const menuCategories = categories?.filter((category) =>
-    categoriesToShow.includes(category.category_name)
-  );
+  const menuCategories = categories?.filter((category) => categoriesToShow.includes(category._id));
 
   return (
     <Box sx={styles.navbarStyles} className={displayTopBanner ? "navbar-with-topbanner" : "navbar"}>
