@@ -9,6 +9,7 @@ export interface ProductsData {
   product_sku: string;
   product_slug: string;
   image_name: ImageName[];
+  video_name: IVideoName;
   product_attributes: ProductAttribute[];
   supplier_name: string;
   product_description: string;
@@ -89,6 +90,13 @@ export interface ImageName {
   name: string;
   original_name: string;
   size: number;
+  type: string;
+}
+
+export interface IVideoName {
+  name: string;
+  original_name: string;
+  size: string;
   type: string;
 }
 

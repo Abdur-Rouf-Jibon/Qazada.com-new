@@ -467,7 +467,11 @@ export const Product = ({ id }: { id: string }) => {
               </span>
             </Typography>
             {sliderImages && (
-              <Slider images={sliderImages} youtubeLink={productData?.youtube_link} />
+              <Slider
+                images={sliderImages}
+                youtubeLink={productData?.youtube_link}
+                video_name={productData?.video_name}
+              />
             )}
           </Grid>
           <Grid item md={5} xs={12} sm={10}>
@@ -709,8 +713,8 @@ export const Product = ({ id }: { id: string }) => {
                           const possibleSubSku = selectedColor
                             ? `${productData.product_sku}-${selectedColor.text}-${text}`
                             : selectedDesign
-                              ? `${productData.product_sku}-${selectedDesign.text}-${text}`
-                              : `${productData.product_sku}-${text}`;
+                            ? `${productData.product_sku}-${selectedDesign.text}-${text}`
+                            : `${productData.product_sku}-${text}`;
                           const sizeSubSkuData =
                             productInventoryBulkMutation.data &&
                             productInventoryBulkMutation.data.find(
