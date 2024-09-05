@@ -12,9 +12,15 @@ import * as styles from "./style";
 interface Props {
   images: string[];
   youtubeLink?: string;
+  video_name?: {
+    name: string;
+    original_name: string;
+    size: string;
+    type: string;
+  };
 }
 
-export const Slider: React.FC<Props> = ({ images, youtubeLink }) => {
+export const Slider: React.FC<Props> = ({ images, youtubeLink, video_name }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | undefined>();
   const selectedSubSku = useRecoilValue(selectedSubSKUAtom);
   const [controlledSwiper, setControlledSwiper] = useState<SwiperCore | undefined>();
@@ -63,13 +69,19 @@ export const Slider: React.FC<Props> = ({ images, youtubeLink }) => {
             <SwiperSlide>
               {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
               <div className="iframe-container-div">
-              <iframe
-                src={`https://www.youtube.com/embed/${youtubeLink}`}
-                frameBorder="0"
-              ></iframe>
+                <iframe
+                  src={`https://www.youtube.com/embed/${youtubeLink}`}
+                  frameBorder="0"
+                ></iframe>
               </div>
-              
-              
+            </SwiperSlide>
+          )}
+          {video_name && (
+            <SwiperSlide>
+              {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
+              <div className="iframe-container-div">
+                <iframe src={`${video_name.name}`} frameBorder="0"></iframe>
+              </div>
             </SwiperSlide>
           )}
           {images?.map((name, index) => (
